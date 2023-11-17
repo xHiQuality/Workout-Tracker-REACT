@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Workout from './components/Workout_Section/Workout.js'
 import './WorkoutPage.css'; // Import your CSS file for styling
 
 const WorkoutPage = () => {
@@ -41,8 +42,9 @@ const WorkoutPage = () => {
           <div className="workout-card">Card 6</div>
           </div>
         </div>
+        <Workout />
       </div>
-   
+    
   );
 };
 
