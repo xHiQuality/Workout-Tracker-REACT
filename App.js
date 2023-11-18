@@ -1,50 +1,27 @@
 import React, { useState } from 'react';
-import './WorkoutPage.css'; // Import your CSS file for styling
+import AddUser from './components/AddUser';
+import Hdr from './components/Hdr';
+import UserList from './components/UsersList';
 
-const WorkoutPage = () => {
-  const [url, setUrl] = useState('');
-  const [isLoggedIn, setLoggedIn] = useState(false);
 
-  const handleLogin = () => {
-    // Implement your login logic here
-    // For simplicity, toggle the login state
-    setLoggedIn(!isLoggedIn);
+function App() {
+  const [users, setUsers] = useState([]);
+
+
+  // Handler function to add a new user to the list
+  const addUserHandler = (user) => {
+    setUsers((prevUsers) => [...prevUsers, user]);
   };
 
   return (
-    <div className="workout-page">
-      <div className="header">
-        <input
-          type="text"
-          placeholder="Enter URL"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-        />
-        <button onClick={handleLogin}>{isLoggedIn ? 'Logout' : 'Login'}</button>
-      </div>
-
-      <div className="main-content">
-        <div className="logo-card">
-          <h1>Fitness Plus</h1>
-        </div>
-
-        <div className="workout-cards">
-          {/* Existing Cards */}
-          <div className="workout-card">Card 1</div>
-          <div className="workout-card">Card 2</div>
-          <div className="workout-card">Card 3</div>
-          </div>
-          {/* New Cards */}
-          <div className='workout-cards'>
-          <div className="workout-card">Card 4</div>
-          <div className="workout-card">Card 5</div>
-          <div className="workout-card">Card 6</div>
-          </div>
-        </div>
-      </div>
-   
+    <div>
+      <Hdr />
+      <AddUser onAddUser={addUserHandler} />
+      <UserList users={users} />
+    
+    
+    </div>
   );
-};
+}
 
-
-export default WorkoutPage;
+export default App;
