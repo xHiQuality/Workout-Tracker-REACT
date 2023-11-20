@@ -5,7 +5,8 @@ import Workout from './components/Workout_Section/Workout.js'
 import './WorkoutPage.css'; // Import your CSS file for styling
 import Summary from './components/Summary.js';
 import Hdr from './components/Hdr.js';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Navbar from './components/Navbar.js';
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
               <UserList users={users} /* This should be a dummy array of users initially */ />
             </React.Fragment>
           } />
-          <Route path='user-auth' element={
+          <Route path='/user-auth' element={
             <React.Fragment>
               <Hdr />
               <UserList users={users} />
@@ -53,6 +54,7 @@ function App() {
       </div>
     </Router>
   );
+
 }
 
 export default App;
