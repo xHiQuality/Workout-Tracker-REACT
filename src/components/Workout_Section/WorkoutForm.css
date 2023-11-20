@@ -1,0 +1,32 @@
+.workout-form {
+    
+    margin: 0 20px 0 20px;
+    padding: 0 20px 0 20px;
+    border: black 2px solid;
+    width: 500px;
+    height: 300px;
+}
+
+.titles {
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    display: block;
+    flex-direction: row;
+    text-align: center;
+}
+
+ul {
+    padding-left: 0;
+    justify-content: space-around;
+}
+
+ul li {
+    text-align: center;
+    font-weight: bold;
+    list-style-type: none;
+    padding-left: 0;
+    padding-bottom: 5px;
+}
