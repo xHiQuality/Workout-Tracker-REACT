@@ -3,6 +3,7 @@ import Workout from './components/Workout_Section/Workout.js'
 import './WorkoutPage.css'; // Import your CSS file for styling
 import Summary from './components/Summary.js';
 import Header from './components/Header.js';
+import Login from './components/Login.js';
 
 const WorkoutPage = () => {
   const [url, setUrl] = useState('');
@@ -27,6 +28,7 @@ const WorkoutPage = () => {
       </div>
 
       <div>
+        <Login/>
         <Summary/>
       </div>
 
@@ -54,14 +56,14 @@ const WorkoutPage = () => {
   );
 };
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Summary/>
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div>
+//       <Header />
+//       <Summary/>
+//     </div>
+//   );
+// }
 
 export default WorkoutPage;
 // export default App;
