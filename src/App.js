@@ -4,7 +4,6 @@ import UserList from './components/UsersList';
 import Workout from './components/Workout_Section/Workout.js'
 import './WorkoutPage.css'; // Import your CSS file for styling
 import Summary from './components/Summary.js';
-import Header from './components/Header.js';
 import Hdr from './components/Hdr.js';
 
 
@@ -20,6 +19,7 @@ function App() {
   return (
     <div>
       <Hdr />
+      <Summary />
       <AddUser onAddUser={addUserHandler} />
       <UserList users={users} />
     
