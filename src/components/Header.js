@@ -1,6 +1,7 @@
 import './Header.css'
+import Button from './Button';
 
-const Hdr = ({ }) => {
+const Header = () => {
       
     return (
       <div className="header">
