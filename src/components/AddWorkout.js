@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Card from './Card';
-import Button from './Button';
+import Card from '../../Card';
+import Button from '../../Button';
 import './AddUser.css';
 
 function AddWorkout({ onAddWorkout }) {
