@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from './Card';
 import Button from './Button';
 import './AddUser.css';
+import { Link } from 'react-router-dom';
 
 function AddUser({ onAddUser }) {
 
@@ -42,7 +43,11 @@ function AddUser({ onAddUser }) {
 
   return (
     <div> 
-      <Button onClick={showFormHandler}>Add Entry</Button>
+      {/* <Button onClick={showFormHandler}>Add Entry</Button> */}
+      {/* Router link within the button */}
+      <Button onClick={showFormHandler}>
+        <Link to="/user-auth">Add Entry</Link> 
+      </Button>
         {isFormVisible && ( // Display the form only when isFormVisible is true
 
 <Card className="input">
