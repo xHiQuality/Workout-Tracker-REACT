@@ -8,6 +8,11 @@ import Hdr from './components/Hdr.js';
 
 
 function App() {
+
+  const DUMMY_ITEMS = [
+      // Create and render default array with dummy items
+  ]
+
   const [users, setUsers] = useState([]);
 
 
