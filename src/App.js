@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Workout from './components/Workout_Section/Workout.js'
 import './WorkoutPage.css'; // Import your CSS file for styling
+import Summary from './components/Summary.js';
+import Header from './components/Header.js';
 
 const WorkoutPage = () => {
   const [url, setUrl] = useState('');
@@ -22,6 +24,10 @@ const WorkoutPage = () => {
           onChange={(e) => setUrl(e.target.value)}
         />
         <button onClick={handleLogin}>{isLoggedIn ? 'Logout' : 'Login'}</button>
+      </div>
+
+      <div>
+        <Summary/>
       </div>
 
       <div className="main-content">
@@ -48,5 +54,14 @@ const WorkoutPage = () => {
   );
 };
 
+function App() {
+  return (
+    <div>
+      <Header />
+      <Summary/>
+    </div>
+  );
+}
 
 export default WorkoutPage;
+// export default App;
