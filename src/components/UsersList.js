@@ -34,7 +34,7 @@ function UserList({ users }) {
             <ul>
               {foodUsers.map((user, index) => (
                 <li key={index}>
-                  <Food meal={user.meal} calories={user.calories} />
+                  <Food name={user.name} meal={user.meal} calories={user.calories} />
                   <li key={index}>
                   <MealImage mealImage = {user.mealImage} />
                 </li>
@@ -52,7 +52,7 @@ function UserList({ users }) {
             <ul>
               {workoutUsers.map((user, index) => (
                 <li key={index}>
-                  <Workout workout={user.workout} calories={user.burnedCalories} />
+                  <Workout name={user.name} workout={user.workout} calories={user.burnedCalories} />
                   <li key={index}>
                   <Image image = {user.image} />
                 </li>

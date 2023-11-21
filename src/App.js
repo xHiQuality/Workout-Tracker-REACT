@@ -16,6 +16,7 @@ function App() {
       // Create and render default array with dummy items
       {
         id: 'u1',
+        name: 'John',
         meal: 'breakfast',
         calories: '180',
         workout: 'legs',
@@ -25,6 +26,7 @@ function App() {
       },
       {
         id: 'u2',
+        name: 'Bill',
         meal: 'lunch',
         calories: '1180',
         workout: 'arms',
@@ -34,6 +36,7 @@ function App() {
       },
       {
         id: 'u3',
+        name: 'Bob',
         meal: 'dinner',
         calories: '1200',
         workout: 'push',

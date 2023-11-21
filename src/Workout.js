@@ -8,6 +8,7 @@ const Workout = props => {
         <li key={props.id} className="user-item">
         <div className="user-info">
             <h2>Exercise:</h2>
+            <h2>Name: {props.name}</h2>
             <h3>Workout: {props.workout}</h3>
             <h3>Calories: {props.calories}</h3>
         </div>
