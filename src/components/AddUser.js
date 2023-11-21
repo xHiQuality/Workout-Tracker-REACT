@@ -11,6 +11,9 @@ function AddUser({ onAddUser }) {
   const [meal, setMeal] = useState('Breakfast'); // Default value set to 'Breakfast'
   const [burnedCalories, setBurnedCalories] = useState('');
   const [workout, setWorkout] = useState('Push'); // Default value set to 'Breakfast'
+  const [image, setImage] = useState('')
+  const [mealImage, setMealImage] = useState('')
+
 
   const addUserHandler = (event) => {
     event.preventDefault();
@@ -18,6 +21,8 @@ function AddUser({ onAddUser }) {
     const newUser = {
       meal: meal,
       calories: calories,
+      image: image,
+      mealImage: mealImage,
       workout: workout, 
       burnedCalories: burnedCalories
     };
@@ -29,6 +34,8 @@ function AddUser({ onAddUser }) {
     setMeal('');
     setCalories('');
     setBurnedCalories('')
+    setImage('')
+    setMealImage('')
     setWorkout('')
     setIsFormVisible(false);
 
@@ -52,7 +59,16 @@ function AddUser({ onAddUser }) {
 
 <Card className="input">
         <form onSubmit={addUserHandler}>
-          
+        
+        <label>Meal Image</label>
+          <input
+            id="mealImage"
+            type="string"
+            value={mealImage}
+            onChange={(e) => setMealImage(e.target.value)}
+          /> 
+
+
         <label>Meal</label>
           <select id="meal" value={meal} onChange={(e) => setMeal(e.target.value)}>
             {/* Create options for Breakfast, Lunch, and Dinner */}
@@ -72,6 +88,14 @@ function AddUser({ onAddUser }) {
             onChange={(e) => setCalories(e.target.value)}
           /> 
         
+        <label>Workout Image</label>
+          <input
+            id="image"
+            type="string"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          /> 
+
         <label>Workout</label>
           <select id="meal" value={workout} onChange={(e) => setWorkout(e.target.value)}>
             {/* Create options for Breakfast, Lunch, and Dinner */}
