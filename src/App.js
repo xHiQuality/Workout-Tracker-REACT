@@ -14,9 +14,31 @@ function App() {
 
   const DUMMY_ITEMS = [
       // Create and render default array with dummy items
+      {
+        id: 'u1',
+        meal: 'breakfast',
+        calories: '180',
+        workout: 'legs',
+        burnedCalories: '300'
+      },
+      {
+        id: 'u2',
+        meal: 'lunch',
+        calories: '1180',
+        workout: 'arms',
+        burnedCalories: '150'
+      },
+      {
+        id: 'u3',
+        meal: 'dinner',
+        calories: '1200',
+        workout: 'push',
+        burnedCalories: '270'
+      }
   ]
 
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(DUMMY_ITEMS);
 
 
   // Handler function to add a new user to the list
