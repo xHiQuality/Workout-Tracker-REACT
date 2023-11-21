@@ -6,7 +6,8 @@ import './WorkoutPage.css'; // Import your CSS file for styling
 import Summary from './components/Summary.js';
 import Hdr from './components/Hdr.js';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Navbar from './components/Navbar.js';
+//import Navbar from './components/Navbar.js';
+import Header from './components/Header.js'
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
           } />
           <Route path='/user-auth' element={
             <React.Fragment>
-              <Hdr />
+              <Header />
               <UserList users={users} />
               <AddUser onAddUser={addUserHandler} />
             </React.Fragment>
