@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <div className="hdr">
-      <h1>Workout Plus</h1>
+      <h1>Workout Tracker +</h1>
       <Button type="submit">
             <Link to="/">Log out</Link> 
         </Button>
