@@ -13,7 +13,6 @@ const Hdr = () => {
     setShowLogin(!showLogin);
   }
 
-
   return (
     <div className="hdr">
       <h1>Workout Plus</h1>
