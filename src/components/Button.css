@@ -1,6 +1,6 @@
 .button {
   font: inherit;
-  border: 1px solid rgb(68, 66, 69);
+  border: 3px solid rgb(0, 0, 0);
   background:rgb(68, 66, 69);
   color: white;
   padding: 0.25rem 1rem;
@@ -9,10 +9,15 @@
 
 .button:hover,
 .button:active {
-  background:rgb(68, 66, 69);
-  border-color: rgb(68, 66, 69);
+  background:rgb(158, 59, 208);
+  border-color: rgb(0, 0, 0);
 }
 
 .button:focus {
   outline: none;
 }
+
+a {
+  color: white;
+}
+
