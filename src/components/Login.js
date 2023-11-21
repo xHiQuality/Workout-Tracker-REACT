@@ -19,8 +19,6 @@ const Login = ({onLogin}) => {
                     placeholder='Username'
                     name="username"
                     type="text"
-                    value={username.username}
-                    onChange={setUsername}
                 /> 
                 <input
                     placeholder='Password'
