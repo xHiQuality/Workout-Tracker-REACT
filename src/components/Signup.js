@@ -13,7 +13,7 @@ const Login = ({onLogin}) => {
 
     return (
         <div className='login'>
-            <h1>Log In</h1>
+            <h1>Sign Up</h1>
             <form onSubmit={submitHandler}>
                 <input
                     placeholder='Username'
