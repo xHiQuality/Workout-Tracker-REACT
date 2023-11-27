@@ -13,8 +13,13 @@ const Login = ({onLogin}) => {
 
     return (
         <div className='login'>
-            <h1>Log In</h1>
+            <h1>Sign Up</h1>
             <form onSubmit={submitHandler}>
+                <input 
+                    placeholder='Email@email.com'
+                    name="email"
+                    type="text"
+                />
                 <input
                     placeholder='Username'
                     name="username"
@@ -26,12 +31,12 @@ const Login = ({onLogin}) => {
                     type="password"
                 />
                 <Button type="submit">
-                    <Link to="/user-auth">Login</Link> 
+                    <Link to="/user-auth">Sign Up</Link> 
                 </Button>
             </form>
-            <p>Don't have an account?</p>
+            <p>Already have an account?</p>
             <Button type="submit">
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/">Login</Link>
             </Button>
         </div>
         
