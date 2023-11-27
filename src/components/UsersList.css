@@ -1,4 +1,4 @@
-.users {
+  .users {
     margin: 2rem auto;
     width: 90%;
     max-width: 40rem;
@@ -14,3 +14,21 @@
     margin: 0.5rem 0;
     padding: 0.5rem;
   }
+
+  .userlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+   }
+
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+  }
+
+  .grid-item {
+    width: 100%;
+  } 
+   
