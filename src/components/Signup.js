@@ -30,9 +30,7 @@ const Login = ({onLogin}) => {
                 </Button>
             </form>
             <p>Don't have an account?</p>
-            <Button type="submit">
-                <Link to="/signup">Sign Up</Link>
-            </Button>
+            <Button type="submit">Sign Up</Button>
         </div>
         
     );
