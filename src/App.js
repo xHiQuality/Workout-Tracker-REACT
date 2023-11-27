@@ -8,6 +8,8 @@ import Hdr from './components/Hdr.js';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 //import Navbar from './components/Navbar.js';
 import Header from './components/Header.js'
+import Signup from './components/Signup.js'
+import Header2 from './components/Header2.js'
 
 
 function App() {
@@ -79,6 +81,12 @@ function App() {
               <Header />
               <UserList users={users} />
               <AddUser onAddUser={addUserHandler} />
+            </React.Fragment>
+          } />
+          <Route path='signup' element={
+            <React.Fragment>
+              <Header2 />
+              <Signup />
             </React.Fragment>
           } />
           <Route path='*' element={<ErrorPage />}/>
