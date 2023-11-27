@@ -23,7 +23,7 @@ const Login = ({onLogin}) => {
                 <input
                     placeholder='Password'
                     name="password"
-                    type="text"
+                    type="password"
                 />
                 <Button type="submit">
                     <Link to="/user-auth">Login</Link> 
