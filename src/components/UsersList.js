@@ -10,7 +10,7 @@ function UserList({ users }) {
   const workoutUsers = users.filter((user) => user.workout !== user.burnedCalories);
 
   return (
-    <div class = "userlist">
+    <div className = "userlist">
 
 {/* {imageUsers.length > 0 && (
         <Card className="user-card">
