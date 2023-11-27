@@ -15,6 +15,11 @@ const Login = ({onLogin}) => {
         <div className='login'>
             <h1>Sign Up</h1>
             <form onSubmit={submitHandler}>
+                <input 
+                    placeholder='Email@email.com'
+                    name="email"
+                    type="text"
+                />
                 <input
                     placeholder='Username'
                     name="username"
@@ -23,14 +28,16 @@ const Login = ({onLogin}) => {
                 <input
                     placeholder='Password'
                     name="password"
-                    type="text"
+                    type="password"
                 />
                 <Button type="submit">
-                    <Link to="/user-auth">Login</Link> 
+                    <Link to="/user-auth">Sign Up</Link> 
                 </Button>
             </form>
-            <p>Don't have an account?</p>
-            <Button type="submit">Sign Up</Button>
+            <p>Already have an account?</p>
+            <Button type="submit">
+                <Link to="/">Login</Link>
+            </Button>
         </div>
         
     );
