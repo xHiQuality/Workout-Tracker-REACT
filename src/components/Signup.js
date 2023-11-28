@@ -13,11 +13,11 @@ const Login = ({onLogin}) => {
     }
 
     return (
-        <Card className='input'>
+        <Card className="input">
             <h1>Sign Up</h1>
             <form onSubmit={submitHandler}>
                 <input 
-                    placeholder='Email@email.com'
+                    placeholder='email@email.com'
                     name="email"
                     type="text"
                 />

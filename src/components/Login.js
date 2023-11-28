@@ -13,7 +13,7 @@ const Login = ({onLogin}) => {
     }
 
     return (
-        <Card className='input'>
+        <Card className="input">
             <h1>Log In</h1>
             <form onSubmit={submitHandler}>
                 <input

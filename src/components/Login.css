@@ -1,3 +1,14 @@
 .input {
     display: block;
+    text-align: center;
+}
+
+.input h1 {
+    color: black;
+}
+
+.input input {
+    border-radius: 30px;
+    padding: 5px;
+    padding-left: 8px;
 }
