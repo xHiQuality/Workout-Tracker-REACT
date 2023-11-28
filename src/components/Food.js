@@ -8,7 +8,6 @@ const Food = props => {
         <li key={props.id} className="user-item">
         <div className="user-info">
             <h2>Food:</h2>
-            <h3>Name: {props.name}</h3>
             <h3>Meal: {props.meal}</h3>
             <h3>Calories: {props.calories}</h3>
         </div>

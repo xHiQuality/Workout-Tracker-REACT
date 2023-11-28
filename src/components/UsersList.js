@@ -1,7 +1,7 @@
 import React from 'react';
 import './UsersList.css';
 import Food from './Food';
-import Workout from '../Workout';
+import Workout from './Workout';
 import Card from './Card';
 import Image from './Image';
 import MealImage from './MealImage';

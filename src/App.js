@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import AddUser from './components/AddUser';
 import UserList from './components/UsersList';
-import Workout from './components/Workout_Section/Workout.js'
-import './WorkoutPage.css'; // Import your CSS file for styling
-import Summary from './components/Summary.js';
 import Hdr from './components/Hdr.js';
+import './components/WorkoutPage.css'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 //import Navbar from './components/Navbar.js';
 import Header from './components/Header.js'
@@ -18,7 +16,6 @@ function App() {
       // Create and render default array with dummy items
       {
         id: 'u1',
-        name: 'John',
         meal: 'breakfast',
         calories: '180',
         workout: 'legs',
@@ -28,7 +25,6 @@ function App() {
       },
       {
         id: 'u2',
-        name: 'Bill',
         meal: 'lunch',
         calories: '1180',
         workout: 'arms',
@@ -38,7 +34,6 @@ function App() {
       },
       {
         id: 'u3',
-        name: 'Bob',
         meal: 'dinner',
         calories: '1200',
         workout: 'push',
