@@ -3,6 +3,7 @@ import './Login.css'
 import Button from './Button';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Card from './Card';
 
 const Login = ({onLogin}) => {
 
@@ -12,7 +13,7 @@ const Login = ({onLogin}) => {
     }
 
     return (
-        <div className='login'>
+        <Card className='input'>
             <h1>Sign Up</h1>
             <form onSubmit={submitHandler}>
                 <input 
@@ -38,7 +39,7 @@ const Login = ({onLogin}) => {
             <Button type="submit">
                 <Link to="/">Login</Link>
             </Button>
-        </div>
+        </Card>
         
     );
 }
