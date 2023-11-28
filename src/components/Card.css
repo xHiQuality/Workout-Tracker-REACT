@@ -1,5 +1,14 @@
-.card {
-  background: white;
+/* .card {
+  background: rgb(69, 164, 253);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+ } */
+
+ .card {
+  background: linear-gradient(135deg, #37b6ff 0%, #28a0c5 100%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;
   display: grid;
