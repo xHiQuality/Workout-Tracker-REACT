@@ -8,6 +8,8 @@ import Hdr from './components/Hdr.js';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 //import Navbar from './components/Navbar.js';
 import Header from './components/Header.js'
+import './App.css';
+
 
 
 function App() {

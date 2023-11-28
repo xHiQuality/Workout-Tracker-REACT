@@ -1,9 +1,19 @@
-.hdr {
+/* .hdr {
     text-align: center;
-    background-color:  rgb(68, 66, 69);
+    background-color:  rgb(18, 18, 125);
     padding: 30px 0 20px 0 ;
 }
 .hdr h1 {
     margin: 0 auto;
     color: white;
+} */
+
+.hdr {
+    text-align: center;
+    background-color: #37b6ff;
+    padding: 30px 0 20px 0;
+}
+.hdr h1 {
+    margin: 0 auto;
+    color: rgb(255, 255, 255);
 }
