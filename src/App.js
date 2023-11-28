@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Header from './components/Header.js'
 import Signup from './components/Signup.js'
 import Header2 from './components/Header2.js'
-
+import './App.css';
 
 function App() {
 
