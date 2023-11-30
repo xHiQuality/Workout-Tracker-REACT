@@ -32,6 +32,9 @@
 
 // Workout.js
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Food.css';
+import CustomCard from './Card';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 // import './Workout.css'; // Make sure to import your CSS file
@@ -45,14 +48,32 @@ const Workout = (props) => {
         className="card-image"
       />
 
-      <Card.Body className="card-body">
-        <Card.Title>Exercise:</Card.Title>
-        <Card.Text>
-          <h3>Name: {props.name}</h3>
-          <h3>Workout: {props.workout}</h3>
-          <h3>Calories: {props.calories}</h3>
-        </Card.Text>
-        <Button variant="primary">Delete</Button>
+      <Card.Body>
+        <li key={props.id} className="user-item">
+          <Card.Title>Exercise:</Card.Title>
+          <Card.Text>
+            <h3>Name: {props.name}</h3>
+            <h3>Workout: {props.workout}</h3>
+            <h3>Calories: {props.calories}</h3>
+            
+            {window.location.pathname === '/user-auth' && (
+                <Link to ='edit'>
+                    <Button type = 'submit' id = 'edit'>
+                        Edit
+                    </Button>
+                    
+                </Link>
+            )}
+            {window.location.pathname === '/user-auth' && (
+                <Link to ='delete'>
+                    <Button type = 'submit' id = 'delete'>
+                        Delete
+                    </Button>
+                    
+                </Link>
+            )}
+          </Card.Text>
+        </li>
       </Card.Body>
     </Card>
   );

@@ -30,6 +30,7 @@
 
 // Food.js// Food.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './Food.css'; // Make sure to import your CSS file
@@ -43,14 +44,30 @@ const Food = (props) => {
         className="card-image"
       />
 
-      <Card.Body className="card-body">
-        <Card.Title>Food:</Card.Title>
-        <Card.Text>
-          <h3>Name: {props.name}</h3>
-          <h3>Meal: {props.meal}</h3>
-          <h3>Calories: {props.calories}</h3>
-        </Card.Text>
-        <Button variant="primary">Delete</Button>
+      <Card.Body>
+        <li key={props.id} className="user-item">
+          <Card.Title>Food:</Card.Title>
+          <Card.Text>
+            <h3>Name: {props.name}</h3>
+            <h3>Meal: {props.meal}</h3>
+            <h3>Calories: {props.calories}</h3>
+            {window.location.pathname === '/user-auth' && (
+                <Link to ='/*'>
+                    <Button type = 'submit' id = 'edit'>
+                        Edit
+                    </Button>
+                </Link>
+            )}
+            {window.location.pathname === '/user-auth' && (
+                <Link to ='/*'>
+                    <Button type = 'submit' id = 'delete'>
+                        Delete
+                    </Button>
+                </Link>
+            )}
+          </Card.Text>
+        </li>
+{/* >>>>>>> fc8f55e23d5af422b1b61f8cd3f2fb80a34aaa40 */}
       </Card.Body>
     </Card>
   );
