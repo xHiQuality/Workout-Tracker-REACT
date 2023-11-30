@@ -82,14 +82,16 @@ import Button from 'react-bootstrap/Button';
 import './Food.css'; // Make sure to import your CSS file
 
 const Food = (props) => {
+  console.log(props.mealImage)
+ 
   return (
     <Card className="custom-card">
       <Card.Img
         variant="top"
-        src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJlYWtmYXN0fGVufDB8fDB8fHww"
+        src= {props.mealImage}
         className="card-image"
       />
-
+{/* https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJlYWtmYXN0fGVufDB8fDB8fHww */}
       <Card.Body>
         <li key={props.id} className="user-item">
           <Card.Title>Food:</Card.Title>

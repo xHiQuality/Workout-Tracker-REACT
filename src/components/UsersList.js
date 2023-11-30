@@ -73,7 +73,7 @@ function UserList({ users }) {
             <Card.Body>
               <h2>Food Information:</h2>
               {foodUsers.map((user, index) => (
-                <Food key={index} name={user.name} meal={user.meal} calories={user.calories} />
+                <Food key={index} name={user.name} meal={user.meal} calories={user.calories} mealImage={user.mealImage} />
               ))}
             </Card.Body>
           </Card>
@@ -84,7 +84,7 @@ function UserList({ users }) {
             <Card.Body>
               <h2>Workout Information:</h2>
               {workoutUsers.map((user, index) => (
-                <Workout key={index} name={user.name} workout={user.workout} calories={user.burnedCalories} />
+                <Workout key={index} name={user.name} workout={user.workout} calories={user.burnedCalories} image={user.image}/>
               ))}
             </Card.Body>
           </Card>

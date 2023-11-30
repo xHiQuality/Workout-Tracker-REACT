@@ -38,6 +38,9 @@ function AddUser({ onAddUser }) {
   const showFormHandler = () => {
     setIsFormVisible(true);
   };
+  const closeFormHandler = () => {
+    setIsFormVisible(false);
+  };
 
   return (
     <div>
@@ -108,9 +111,10 @@ function AddUser({ onAddUser }) {
               </Form.Group>
 
               <Button type="submit" id="addEntry">Add Entry</Button>
-              <Button type="submit" id="cancel" onClick={showFormHandler}>Cancel</Button>
+              <Button type="submit" id="cancel" onClick={closeFormHandler}>Cancel</Button>
               
             </Form>
+            
           </Card.Body>
         </Card>
       )}

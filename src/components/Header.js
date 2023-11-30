@@ -16,6 +16,7 @@ const Header = () => {
   return (
     <div className="hdr">
       <h1>Workout Tracker +</h1>
+      <h2>Welcome, Cason!</h2>
       <Button type="submit" style={buttonStyle}>
         <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Log out</Link>
       </Button>
