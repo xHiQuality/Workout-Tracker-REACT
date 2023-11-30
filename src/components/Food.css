@@ -32,3 +32,15 @@ body {
 .grid-container {
   color: 
 }
+
+/* Food.css */
+.edit-button,
+.delete-button {
+  margin-right: 10px; /* Adjust as needed for spacing between buttons */
+}
+
+.edit-button,
+.delete-button {
+  background-color: #888; /* Gray color for both buttons */
+  color: #fff; /* White text color */
+}
