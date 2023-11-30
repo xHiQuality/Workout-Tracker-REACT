@@ -15,5 +15,6 @@
 }
 .hdr h1 {
     margin: 0 auto;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
+    color: black;
 }
