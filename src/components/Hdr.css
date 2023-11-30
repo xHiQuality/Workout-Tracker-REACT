@@ -17,3 +17,13 @@
     margin: 0 auto;
     color: rgb(255, 255, 255);
 }
+
+.h1 {
+    position: relative;
+}
+
+.logo {
+    width: 100px;
+    /* float: left; */
+    margin-left: 10px;
+}
