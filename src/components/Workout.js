@@ -21,7 +21,23 @@ const Workout = props => {
             <h3>Name: {props.name}</h3>
             <h3>Workout: {props.workout}</h3>
             <h3>Calories: {props.calories}</h3>
-            <Button variant="primary">Delete</Button>
+            
+            {window.location.pathname === '/user-auth' && (
+                <Link to ='edit'>
+                    <Button type = 'submit' id = 'edit'>
+                        Edit
+                    </Button>
+                    
+                </Link>
+            )}
+            {window.location.pathname === '/user-auth' && (
+                <Link to ='delete'>
+                    <Button type = 'submit' id = 'delete'>
+                        Delete
+                    </Button>
+                    
+                </Link>
+            )}
           </Card.Text>
         </li>
       </Card.Body>

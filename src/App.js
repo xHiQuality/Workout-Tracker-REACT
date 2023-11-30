@@ -9,6 +9,7 @@ import Header from './components/Header.js'
 import Signup from './components/Signup.js'
 import Header2 from './components/Header2.js'
 import './App.css';
+import Button from './components/Button.js';
 
 function App() {
 
@@ -61,6 +62,15 @@ function App() {
     )
   }
 
+  /** Delete after testing */
+  function ButtonLink () {
+    return (
+      <div>
+        <h3>Button Clicked</h3>
+      </div>
+    )
+  }
+
   return (
     <Router>
       <div>
@@ -84,6 +94,10 @@ function App() {
               <Signup />
             </React.Fragment>
           } />
+          /** Delete after testing of edit/delete button complete */
+          <Route path='/user-auth/edit' element={<ButtonLink type = 'Edit'/>} />
+          <Route path='/user-auth/delete' element={<ButtonLink type = 'Delete'/>} />
+          /** End of Delete after testing */
           <Route path='*' element={<ErrorPage />}/>
         </Routes>
       </div>

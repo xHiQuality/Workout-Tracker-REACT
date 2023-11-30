@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
@@ -18,7 +19,20 @@ const Food = (props) => {
             <h3>Name: {props.name}</h3>
             <h3>Meal: {props.meal}</h3>
             <h3>Calories: {props.calories}</h3>
-            <Button variant="primary">Delete</Button>
+            {window.location.pathname === '/user-auth' && (
+                <Link to ='/*'>
+                    <Button type = 'submit' id = 'edit'>
+                        Edit
+                    </Button>
+                </Link>
+            )}
+            {window.location.pathname === '/user-auth' && (
+                <Link to ='/*'>
+                    <Button type = 'submit' id = 'delete'>
+                        Delete
+                    </Button>
+                </Link>
+            )}
           </Card.Text>
         </li>
       </Card.Body>
