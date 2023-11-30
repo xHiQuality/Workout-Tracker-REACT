@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hdr.css';
-import Button from './Button';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
