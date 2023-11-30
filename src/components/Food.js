@@ -94,24 +94,22 @@ const Food = (props) => {
         <li key={props.id} className="user-item">
           <Card.Title>Food:</Card.Title>
           <Card.Text>
-            <h3>Name: {props.name}</h3>
             <h3>Meal: {props.meal}</h3>
             <h3>Calories: {props.calories}</h3>
 
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">
-                <Link to="/*">
-                  <Button type="submit" id="edit" className="edit-button">
-                    Edit
+                <Button type="submit" id="edit" className="edit-button">
+                    <Link to={"edit"} style={{ textDecoration: 'none'}}>
+                      Edit
+                    </Link>
                   </Button>
-                </Link>
-                <Link to="/*">
+          
                   <Button type="submit" id="delete" className="delete-button">
-                    Delete
+                    <Link to={"delete"} className='link' style={{ textDecoration: 'none'}}>
+                      Delete
+                    </Link>
                   </Button>
-
-        
-                </Link>
               </div>
             )}
           </Card.Text>

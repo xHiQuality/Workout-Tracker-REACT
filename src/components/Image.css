@@ -2,17 +2,21 @@
 .user-item a:active {
   background: #ffd900;
 }
-.user-item { display: flex;}
+.user-item { 
+  display: flex;
+  padding-left: 10px;
+}
 
 .user-content {
   padding: 0;
 }
 
-.user-img {
-  width: 100px;
-  height: 100px;
-  margin-right: 1rem;
-  border-radius: 25%;
+
+.card-image {
+  width: 90%;
+  height: 50%;
+  border-radius: 10%;
+  align-self: center;
 }
 
 
@@ -27,17 +31,16 @@
     margin: 0.2em 0;
 }
 
-.user-item:hover h2,
+/* .user-item:hover h2,
 .user-item:active h2,
 .user-item:hover h3,
 .user-item:active h3 {
   color: #292929;
-}
+} */
 
 .user-item__info h3 {
   margin: 0;
 }
-
 
 img {
     height: 200px;
@@ -46,4 +49,8 @@ img {
 
 li {
     list-style-type: none;    
+}
+
+.user-item li::marker {
+  display: none;
 }

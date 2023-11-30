@@ -28,4 +28,5 @@ label {
  #main-add-entry {
   background-color: #888; /* Gray color for both buttons */
   color: #fff; /* White text color */
+  margin: 10px 0 0 5px;
 }

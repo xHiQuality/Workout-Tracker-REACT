@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Food.css'; // Import the same CSS file used for Food component
+import './Image.css'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { hover } from '@testing-library/user-event/dist/hover';
 
 const Workout = (props) => {
   return (
@@ -17,22 +19,23 @@ const Workout = (props) => {
         <li key={props.id} className="user-item">
           <Card.Title>Exercise:</Card.Title>
           <Card.Text>
-            <h3>Name: {props.name}</h3>
             <h3>Workout: {props.workout}</h3>
             <h3>Calories: {props.calories}</h3>
 
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">
-                <Link to="edit">
                   <Button type="submit" id="edit" className="edit-button">
-                    Edit
+                    <Link to={"edit"} style={{ textDecoration: 'none'}}>
+                      Edit
+                    </Link>
                   </Button>
-                </Link>
-                <Link to="delete">
+          
                   <Button type="submit" id="delete" className="delete-button">
-                    Delete
+                    <Link to={"delete"} className='link' style={{ textDecoration: 'none'}}>
+                      Delete
+                    </Link>
                   </Button>
-                </Link>
+                
               </div>
             )}
           </Card.Text>

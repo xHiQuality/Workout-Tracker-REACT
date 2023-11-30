@@ -20,3 +20,13 @@
 a {
   color: white;
 }
+
+#main-add-entry {
+  height: 50px;
+  width: 200px;
+  border-radius: 15px;
+}
+
+#cancel {
+  margin-left: 20px;
+}

@@ -84,8 +84,9 @@ function App() {
           <Route path='/user-auth' element={
             <React.Fragment>
               <Header />
-              <UserList users={users} />
               <AddUser onAddUser={addUserHandler} />
+              {/* Add calorie counter here */}
+              <UserList users={users} />
             </React.Fragment>
           } />
           <Route path='signup' element={
