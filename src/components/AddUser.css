@@ -24,3 +24,8 @@ label {
   outline: none;
   border-color: #715454;
 }
+
+ #main-add-entry {
+  background-color: #888; /* Gray color for both buttons */
+  color: #fff; /* White text color */
+}

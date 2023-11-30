@@ -32,3 +32,7 @@
     width: 100%;
   } 
    
+/* UsersList.css */
+.user-card {
+  margin-bottom: 20px; /* Adjust the value as needed for your desired spacing */
+}
