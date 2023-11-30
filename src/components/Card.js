@@ -1,14 +1,14 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 
-import './Card.css';
-
-const Card = (props) => {
-  const classes = 'card ' + props.className;
+const CustomCard = (props) => {
+ const classes = 'custom-card ' + props.className;
   
-  return <div className={classes}>{props.children}</div>;
-
-
-
+ return (
+    <Card className={classes}>
+      {props.children}
+    </Card>
+ );
 };
 
-export default Card;
+export default CustomCard;
