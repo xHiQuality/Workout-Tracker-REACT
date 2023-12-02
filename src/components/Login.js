@@ -32,7 +32,7 @@ const Login = () => {
                 user: loginRes.data.user,
             });
             localStorage.setItem("auth-token", loginRes.data.token);
-            navigate('/user-auth');
+            navigate('/');
         } catch (err) {
             setLoading(false);
             err.response.data.msg && setError(err.response.data.msg);

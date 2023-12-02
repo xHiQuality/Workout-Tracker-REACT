@@ -40,7 +40,7 @@ const Signup = () => {
             });
             localStorage.setItem("auth-token", loginRes.data.token);
             setLoading(false);
-            navigate('/user-auth');
+            navigate('/');
         } catch (err) {
             setLoading(false);
             err.response.data.msg && setError(err.response.data.msg);
