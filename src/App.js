@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddUser from './components/AddUser';
 import UserList from './components/UsersList';
 import Hdr from './components/Hdr.js';
@@ -10,6 +10,8 @@ import Signup from './components/Signup.js'
 import Header2 from './components/Header2.js'
 import './App.css';
 import Button from './components/Button.js';
+import UserContext from './context/UserContext.js';
+import axios from 'axios';
 
 function App() {
 
@@ -71,7 +73,37 @@ function App() {
     )
   }
 
+  const [userData, setUserData] = useState({
+    token: undefined,
+    user: undefined,
+  });
+  useEffect(() => {
+    const checkLoggedIn = async () => {
+      let token = localStorage.getItem("auth-token");
+      if (token === null) {
+        localStorage.setItem("auth-token", "");
+        token = "";
+      }
+      const tokenResponse = await axios.post(
+        "http://localhost:4000/tokenIsValid",
+        null,
+        { headers: { "x-auth-token": token }}
+      );
+      if (tokenResponse.data) {
+        const userRes = await axios.get("http://localhost:4000/", {
+          headers: { "x-auth-token": token },
+        });
+        setUserData({
+          token,
+          user: userRes.data,
+        });
+      }
+    };
+    checkLoggedIn();
+  }, []);
+
   return (
+    <UserContext.Provider value={{ userData, setUserData }}>
     <Router>
       <div>
         <Routes>
@@ -104,6 +136,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </UserContext.Provider>
   );
 
 }
