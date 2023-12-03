@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddUser from './components/AddUser';
 import UserList from './components/UsersList';
 import Hdr from './components/Hdr.js';
@@ -10,6 +10,11 @@ import Signup from './components/Signup.js'
 import Header2 from './components/Header2.js'
 import './App.css';
 import Button from './components/Button.js';
+import UserContext from './context/UserContext.js';
+import axios from 'axios';
+import Login from './components/Login.js';
+import Navbar from './components/Navbar.js';
+import { Nav } from 'react-bootstrap';
 
 function App() {
 
@@ -71,9 +76,38 @@ function App() {
     )
   }
 
+  const [userData, setUserData] = useState({
+    token: undefined,
+    user: undefined,
+  });
+  useEffect(() => {
+    const checkLoggedIn = async () => {
+      let token = localStorage.getItem("auth-token");
+      if (token === null) {
+        localStorage.setItem("auth-token", "");
+        token = "";
+      }
+      const tokenResponse = await axios.post(
+        "http://localhost:4000/tokenIsValid",
+        null,
+        { headers: { "x-auth-token": token }}
+      );
+      if (tokenResponse.data) {
+        const userRes = await axios.get("http://localhost:4000/", {
+          headers: { "x-auth-token": token },
+        });
+        setUserData({
+          token,
+          user: userRes.data,
+        });
+      }
+    };
+    checkLoggedIn();
+  }, []);
+
   return (
-    <Router>
-      <div>
+    <UserContext.Provider value={{ userData, setUserData }}>
+      <Router>
         <Routes>
           <Route exact path='/' element={
             <React.Fragment>
@@ -90,7 +124,14 @@ function App() {
               <UserList users={users} />
             </React.Fragment>
           } />
-          <Route path='signup' element={
+          <Route path='/login' element={
+            <React.Fragment>
+              <Header2 />
+              <Login />
+            </React.Fragment>
+            }
+          />
+          <Route path='/signup' element={
             <React.Fragment>
               <Header2 />
               <Signup />
@@ -102,8 +143,8 @@ function App() {
           /** End of Delete after testing */
           <Route path='*' element={<ErrorPage />}/>
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </UserContext.Provider>
   );
 
 }

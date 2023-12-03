@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Hdr.css';
 import Button from './Button';
@@ -23,7 +24,8 @@ const Hdr = () => {
         <h1>Workout Tracker +</h1>
       </div>
       <Button className="button" type="submit" onClick={handleLogin}>
-        {showLogin ? 'Stay logged out' : 'Login'}
+        {showLogin ? 'Stay logged out' : ''}
+        <Link to="/login">Log In</Link>
       </Button>
       {showLogin && <Login />}
     </div>

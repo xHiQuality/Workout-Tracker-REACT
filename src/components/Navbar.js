@@ -3,19 +3,44 @@
 */
 
 import { Link } from 'react-router-dom';
-import Hdr from './Hdr';
+import { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 const Navbar = () => {
-    return (
-        <nav className="navbar">
-            <Hdr />
-            <div className="links">
-                <Link to="/">Home</Link>
-                <Link to="user-auth">New entry</Link>
-                <Link to="/create">Create</Link>
+
+    const [token, setToken] = useState();
+
+    useEffect(() => {
+        setToken(localStorage.getItem("auth-token"));
+    }, []);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        localStorage.clear();
+        if (token) {
+            setToken(false);
+        }
+    }
+
+    if (!token) {
+        return (
+            <div>
+                <h1>Workout Tracker +</h1>
+                <Button type="submit">
+                    <Link to="/login">Log In</Link>
+                </Button>
             </div>
-        </nav>
-    );
+        );
+    } else {
+        return (
+            <div>
+              <h1>Workout Tracker ----</h1>
+              <Button type="submit" variant="danger" onClick={handleSubmit}>
+                  <Link to="/">Log Out</Link>
+              </Button>
+            </div>
+      );    
+    }
 }
 
 export default Navbar;
