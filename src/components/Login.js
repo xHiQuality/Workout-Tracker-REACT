@@ -74,7 +74,7 @@ const Login = () => {
             className="d-flex align-items-center justify-content-center"
             style={{ minHeight: "100vh" }}
         >
-            <div className="w-100" style={{ maxWidth: "400px" }}>
+            <div className="w-100" style={{ width: "100%", textAlign: "center"}}>
                 <>
                 <Card>
                     <Card.Body>
@@ -85,7 +85,7 @@ const Login = () => {
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control type="email" required onChange={e => setEmail(e.target.value)}/>
                             </Form.Group>
-                            <Form.Group id="password">
+                            <Form.Group id="password" style={{ padding: "5px"}}>
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" required onChange={e => setPassword(e.target.value)} />
                             </Form.Group>
