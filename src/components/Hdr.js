@@ -9,7 +9,7 @@ import trackerLogo from './images/workout-tracker--high-resolution-logo-transpar
 
 const Hdr = () => {
 
-  console.log(trackerLogo)
+//  console.log(trackerLogo)
 
   const [showLogin, setShowLogin] = useState(false);
 
@@ -27,7 +27,7 @@ const Hdr = () => {
         {showLogin ? 'Stay logged out' : ''}
         <Link to="/login">Log In</Link>
       </Button>
-      {showLogin && <Login />}
+      {/* {showLogin && <Login />} */}
     </div>
   );
 };

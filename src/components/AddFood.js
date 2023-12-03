@@ -13,6 +13,7 @@ const AddFood = ({ onAddFood }) => {
         meal: '',
         calories: '',
     });
+    const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
         setFood({...food, [e.target.name]: e.target.value});
     };

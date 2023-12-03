@@ -17,6 +17,7 @@ import Navbar from './components/Navbar.js';
 import { Nav } from 'react-bootstrap';
 import AddExercise from './components/AddExercise.js';
 import AddFood from './components/AddFood.js';
+import WorkoutList from './components/WorkoutList.js';
 
 function App() {
 
@@ -51,10 +52,6 @@ function App() {
       }
   ]
 
-  // const [users, setUsers] = useState([]);
-  const [users, setUsers] = useState(DUMMY_ITEMS);
-
-
   // Handler function to add a new user to the list
   const addUserHandler = (user) => {
     setUsers((prevUsers) => [...prevUsers, user]);
@@ -78,6 +75,7 @@ function App() {
     )
   }
 
+  //User authentication
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
@@ -107,6 +105,31 @@ function App() {
     checkLoggedIn();
   }, []);
 
+   // const [users, setUsers] = useState([]);
+   const [users, setUsers] = useState(DUMMY_ITEMS);
+  //  const [foods, setFoods] = useState([]);
+  //  const [exercises, setExercises] = useState([]);
+  //  useEffect(() => {
+  //    axios
+  //      .get('http://localhost:4000/api/foods')
+  //      .then((res) => {
+  //        setFoods(res.data);
+  //      })
+  //      .catch((err) => {
+  //        console.log(err)
+  //      });
+  // });
+  // useEffect(() => {
+  //    axios
+  //      .get('http://localhost:4000/api/exercises')
+  //      .then((res) => {
+  //        setExercises(res.data);
+  //      })
+  //      .catch((err) => {
+  //        console.log(err);
+  //      })
+  //  });
+
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
       <Router>
@@ -126,6 +149,7 @@ function App() {
               {/* Add calorie counter here */}
               {/* <strong>ADDING CALORIES COUNTER HERE</strong> */}
               <UserList users={users} />
+              {/* <WorkoutList users={exercises} /> */}
             </React.Fragment>
           } />
           <Route path='/login' element={

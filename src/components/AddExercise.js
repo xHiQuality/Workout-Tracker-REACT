@@ -19,7 +19,7 @@ const AddExercise = ({ onAddExercise }) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(exercise);
+        // console.log(exercise);
 
         axios
             .post('http://localhost:4000/api/exercises', exercise) 
