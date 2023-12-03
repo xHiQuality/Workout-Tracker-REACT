@@ -40,7 +40,7 @@ const Signup = () => {
             });
             localStorage.setItem("auth-token", loginRes.data.token);
             setLoading(false);
-            navigate('/');
+            navigate('/user-auth');
         } catch (err) {
             setLoading(false);
             err.response.data.msg && setError(err.response.data.msg);
@@ -129,7 +129,7 @@ const Signup = () => {
                                     />
                                 </Form.Group>
                                 <Form.Group id="password-confirm">
-                                    <Form.Label>Password Confirmation</Form.Label>
+                                    <Form.Label>Confirm Password</Form.Label>
                                     <Form.Control 
                                         type="password"
                                         required

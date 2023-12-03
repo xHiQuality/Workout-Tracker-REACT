@@ -3,10 +3,7 @@
 */
 
 import { Link } from 'react-router-dom';
-import Hdr from './Hdr';
-import UsersList from './UsersList'
 import { useEffect, useState } from 'react';
-import { Nav } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
 const Navbar = () => {
@@ -17,29 +14,33 @@ const Navbar = () => {
         setToken(localStorage.getItem("auth-token"));
     }, []);
 
-    if (!token) {
-        return (
-            <Navbar>
-                <div className="hdr">
-                    <h1>Workout Tracker +</h1>
-                    <Button type="submit">
-                        <Link to="/login">Log In</Link>
-                    </Button>
-                </div>
-            </Navbar>
-        );
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        localStorage.clear();
+        if (token) {
+            setToken(false);
+        }
     }
 
-    return (
-        <Navbar>
-          <div>
-            <h1>Workout Tracker +</h1>
-            <Button type="submit">
-                <Link to="/">Log Out</Link>
-            </Button>
-          </div>
-        </Navbar>
-    );
+    if (!token) {
+        return (
+            <div>
+                <h1>Workout Tracker +</h1>
+                <Button type="submit">
+                    <Link to="/login">Log In</Link>
+                </Button>
+            </div>
+        );
+    } else {
+        return (
+            <div>
+              <h1>Workout Tracker ----</h1>
+              <Button type="submit" variant="danger" onClick={handleSubmit}>
+                  <Link to="/">Log Out</Link>
+              </Button>
+            </div>
+      );    
+    }
 }
 
 export default Navbar;
