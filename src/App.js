@@ -15,6 +15,8 @@ import axios from 'axios';
 import Login from './components/Login.js';
 import Navbar from './components/Navbar.js';
 import { Nav } from 'react-bootstrap';
+import AddExercise from './components/AddExercise.js';
+import AddFood from './components/AddFood.js';
 
 function App() {
 
@@ -118,9 +120,11 @@ function App() {
           <Route path='/user-auth' element={
             <React.Fragment>
               <Header />
-              <AddUser onAddUser={addUserHandler} />
+              <AddExercise />
+              <AddFood />
+              {/* <AddUser onAddUser={addUserHandler} /> */}
               {/* Add calorie counter here */}
-              <strong>ADDING CALORIES COUNTER HERE</strong>
+              {/* <strong>ADDING CALORIES COUNTER HERE</strong> */}
               <UserList users={users} />
             </React.Fragment>
           } />
