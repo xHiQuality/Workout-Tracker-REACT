@@ -108,15 +108,16 @@ function App() {
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
       <Router>
-        <Navbar />
         <Routes>
           <Route exact path='/' element={
             <React.Fragment>
+              <Hdr />
               <UserList users={users} /* This should be a dummy array of users initially */ />
             </React.Fragment>
           } />
           <Route path='/user-auth' element={
             <React.Fragment>
+              <Header />
               <AddUser onAddUser={addUserHandler} />
               {/* Add calorie counter here */}
               <strong>ADDING CALORIES COUNTER HERE</strong>
@@ -125,12 +126,14 @@ function App() {
           } />
           <Route path='/login' element={
             <React.Fragment>
+              <Header2 />
               <Login />
             </React.Fragment>
             }
           />
           <Route path='/signup' element={
             <React.Fragment>
+              <Header2 />
               <Signup />
             </React.Fragment>
           } />
