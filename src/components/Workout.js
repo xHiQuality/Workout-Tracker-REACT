@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {useNavigate } from 'react-router-dom';
 
 import './Food.css'; // Import the same CSS file used for Food component
-import './Image.css';
 import './Card.css'
+import './Image.css'
 import Card from 'react-bootstrap/Card';
-import './EditForm.css'
+// import './EditForm.css'
 import EditFormExercise from './EditFormExercise';
 import axios from 'axios';
 
@@ -41,7 +41,7 @@ const Workout = (props, key) => {
         src={props.image}
         className="card-image"
       />
-      {/* https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29ya291dHxlbnwwfHwwfHx8MA%3D%3D */}
+      
       <Card.Body>
         <li key={key} className="user-item">
         <img src={props.img} alt=''></img>

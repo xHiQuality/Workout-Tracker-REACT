@@ -16,7 +16,7 @@ const AddFood = () => {
         dbId: '',
     });
 
-    // const [foods, setFoods] = useState([]);
+    //const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
         setFood({...food, [e.target.name]: e.target.value});
     };
@@ -29,11 +29,6 @@ const AddFood = () => {
       axios
           .post('http://localhost:4000/api/foods', food) 
           .then((res) => {
-              // Log the _id from the MongoDB document
-              const a1 = res.data.food
-              console.log('Inserted document ID:', res.data);
-              food.dbId = a1._id
-
               setFood({
                   name: '',
                   meal: '',
@@ -46,7 +41,7 @@ const AddFood = () => {
               console.log(err);
           });
   
-      // window.location.reload();
+      window.location.reload();
       closeFormHandler();
   };
   
