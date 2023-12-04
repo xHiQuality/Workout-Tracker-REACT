@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './Food.css'; // Import the same CSS file used for Food component
 import './Image.css'
 import Card from 'react-bootstrap/Card';
 import './EditForm.css'
 import EditFormExercise from './EditFormExercise';
+import axios from 'axios';
 
 const Workout = (props) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -18,9 +19,18 @@ const Workout = (props) => {
     setIsFormVisible(false)
   }
 
-  const deleteHandler = (e) => {
-
-  }
+  const navigate = useNavigate();
+  const deleteHandler = (id) => {
+    console.log(id);
+    axios
+      .delete(`http://localhost:4000/api/exercises/${props.id}`)
+      .then((res) => {
+        navigate('/user-auth');
+      })
+      .catch((err) => {
+        console.log("Error from Workout Delete click");
+      });
+  };
   
   return (
     <Card className="card">
@@ -45,7 +55,7 @@ const Workout = (props) => {
                   <button type="submit" className="edit-button" onClick={showFormHandler}>Edit</button>
                   
           
-                  <button type='submit' className='delete-button' onClick={deleteHandler}>
+                  <button type='submit' className='delete-button' onClick={() => { deleteHandler(props.id)}}>
                     Delete
                   </button>
                 
