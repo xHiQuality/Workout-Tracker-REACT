@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './AddUser.css';
 import axios from 'axios';
 
-const AddFood = () => {
+const AddFood = ({ onAddFood }) => {
     const [isFormVisible, setIsFormVisible] = useState(false);
     const navigate = useNavigate();
     const [food, setFood] = useState({
@@ -15,8 +15,7 @@ const AddFood = () => {
         img: '',
         dbId: '',
     });
-
-    // const [foods, setFoods] = useState([]);
+    const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
         setFood({...food, [e.target.name]: e.target.value});
     };
@@ -46,7 +45,7 @@ const AddFood = () => {
               console.log(err);
           });
   
-      // window.location.reload();
+      window.location.reload();
       closeFormHandler();
   };
   
