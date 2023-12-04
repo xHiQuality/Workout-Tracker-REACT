@@ -12,6 +12,7 @@ const AddFood = ({ onAddFood }) => {
         name: '',
         meal: '',
         calories: '',
+        img: '',
     });
     const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
@@ -29,6 +30,7 @@ const AddFood = ({ onAddFood }) => {
                     name: '',
                     meal: '',
                     calories: '',
+                    img: '',
                 });
                 navigate('/user-auth');
             })
@@ -56,6 +58,7 @@ const AddFood = ({ onAddFood }) => {
             Name: <input type='text' onChange={changeHandler} name='name'></input> <br/>
             Meal: <input type='text' onChange={changeHandler} name='meal'></input> <br/>
             Calories: <input type='Number' onChange={changeHandler} name='calories'></input> <br/>
+            Image URL: <input type='text' onChange={changeHandler} name='img'></input> <br/>
             <button>Submit</button>
             <button onClick={closeFormHandler}>Cancel</button>
         </form>
