@@ -19,7 +19,7 @@ import EditFormExercise from './components/EditFormExercise.js';
 import EditFormMeal from './components/EditFormMeal.js';
 import { Link } from 'react-router-dom';
 import './components/Button.css'
-
+import Card from 'react-bootstrap/Card';
 
 function App() {
 
@@ -174,9 +174,10 @@ function App() {
               {/* Add calorie counter here */}
               {/* <strong>ADDING CALORIES COUNTER HERE</strong> */}
               {/* <UserList users={users} /> */}
-              <WorkoutList users={exercises} />
-              <FoodList users={foods} />
-              
+              <Card className="auth-card" >
+                <WorkoutList users={exercises} />
+                <FoodList users={foods} />
+              </Card>
             </React.Fragment>
           } />
           <Route path='/login' element={
