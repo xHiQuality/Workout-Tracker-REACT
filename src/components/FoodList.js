@@ -15,7 +15,7 @@ function FoodList({ users }) {
             <Card.Body>
               <h2>Food Information:</h2>
               {foodUsers.map((user, index) => (
-                <Food key={index} name={user.name} meal={user.meal} calories={user.calories} mealImage={user.mealImage} />
+                <Food key={index} name={user.name} meal={user.meal} calories={user.calories} mealImage={user.img} />
               ))}
             </Card.Body>
           </Card>

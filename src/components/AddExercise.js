@@ -12,6 +12,7 @@ const AddExercise = () => {
         name: '',
         workout: '',
         calories: '',
+        img: '',
     });
     const changeHandler = (e) => {
         setExercise({...exercise, [e.target.name]: e.target.value});
@@ -28,6 +29,7 @@ const AddExercise = () => {
                     name: '',
                     workout: '',
                     calories: '',
+                    img: '',
                 });
                 navigate('/user-auth');
             })
@@ -67,6 +69,7 @@ const AddExercise = () => {
             Name: <input type='text' onChange={changeHandler} name='name'></input> <br/>
             Workout: <input type='text' onChange={changeHandler} name='workout'></input> <br/>
             Calories: <input type='Number' onChange={changeHandler} name='calories'></input> <br/>
+            Image URL: <input type='text' onChange={changeHandler} name='img'></input> <br/>
             <button>Submit</button>
             <button onClick={closeFormHandler}>Cancel</button>
         </form>

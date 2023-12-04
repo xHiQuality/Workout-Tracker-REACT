@@ -98,6 +98,7 @@ const Food = (props) => {
           <Card.Text>
             <h3>Meal: {props.meal}</h3>
             <h3>Calories: {props.calories}</h3>
+            <h3>{props.img}</h3>
 
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">

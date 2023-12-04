@@ -14,8 +14,8 @@
 
 .card-image {
   width: 90%;
-  height: 50%;
-  border-radius: 30px;
+  height: 50%; 
+  border-radius: 10%;
   align-self: center;
 }
 
