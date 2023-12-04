@@ -43,7 +43,7 @@ const Workout = (props, key) => {
       {/* https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29ya291dHxlbnwwfHwwfHx8MA%3D%3D */}
       <Card.Body>
         <li key={key} className="user-item">
-          <Card.Title>Exercise: {props.exercise}</Card.Title>
+          <Card.Title>Exercise: {props.workout_name}</Card.Title>
           <Card.Text>
             <h3>Workout: {props.workout}</h3>
             <h3>Calories: {props.calories}</h3>
