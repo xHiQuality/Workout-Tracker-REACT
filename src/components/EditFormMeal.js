@@ -1,53 +1,55 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import axios from "axios";
 import './EditForm.css'
 
 
 
 
-const EditFormMeal = () => {
+const EditFormMeal = (props) => {
 
     const navigate = useNavigate();
     const [food, setFood] = useState({
-        name: '',
-        meal: '',
-        calories: '',
+        id: props.id,
+        name: props.name,
+        meal: props.meal,
+        calories: props.calories,
+        img: props.img
     });
-    const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
-        
+        setFood({...food, [e.target.name]: e.target.value})
     };
 
     const submitHandler = (e) => {
-        e.preventDefault();
-        console.log(food);
+        
+        const data = {
+            name: food.name,
+            meal: food.meal,
+            calories: food.calories,
+            img: food.img
+        }
 
-        // axios
-        //     .post('http://localhost:4000/api/foods', food) 
-        //     .then((res) => {
-        //         setFood({
-        //             name: '',
-        //             meal: '',
-        //             calories: '',
-        //         });
-        //         navigate('/user-auth');
-        //     })
-        //     .then((res) => console.log(res))
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
+        axios
+        .put(`http://localhost:4000/api/foods/${props.id}`, data)
+        .then((res) => {
+            navigate('/user-auth')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     };
 
   return (
     <div className="edit-page">
         <form onSubmit={submitHandler}>
-            Name: <input type='text' onChange={changeHandler} name='name'></input> <br/>
-            Meal: <input type='text' onChange={changeHandler} name='meal'></input> <br/>
-            Calories: <input type='Number' onChange={changeHandler} name='calories'></input> <br/>
-            <button>Submit</button>
+            Name: <input type='text' onChange={changeHandler} name='name' placeholder={food.name}></input> <br/>         
+            Meal: <input type='text' onChange={changeHandler} name='meal' placeholder={food.meal}></input> <br/>
+            Calories: <input type='Number' onChange={changeHandler} name='calories' placeholder={food.calories}></input> <br/>
+            Image: <input type='text' onChange={changeHandler} name='image' placeholder={food.img}></input> <br/>
+            
+            <button type='submit'>Submit</button>
         </form>
-        <button id="go-back"><Link to={"/user-auth"}>Go Back</Link></button>
+        
     </div>
   );
     

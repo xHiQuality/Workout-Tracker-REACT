@@ -3,7 +3,7 @@ import UserList from './components/UsersList';
 import Hdr from './components/Hdr.js';
 import './components/WorkoutPage.css'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-//import Navbar from './components/Navbar.js';
+
 import Header from './components/Header.js'
 import Signup from './components/Signup.js'
 import Header2 from './components/Header2.js'
@@ -15,8 +15,6 @@ import AddExercise from './components/AddExercise.js';
 import AddFood from './components/AddFood.js';
 import WorkoutList from './components/WorkoutList.js';
 import FoodList from './components/FoodList.js';
-import EditFormExercise from './components/EditFormExercise.js';
-import EditFormMeal from './components/EditFormMeal.js';
 import { Link } from 'react-router-dom';
 import './components/Button.css'
 import Card from 'react-bootstrap/Card';
@@ -54,10 +52,10 @@ function App() {
       }
   ]
 
-  // Handler function to add a new user to the list
-  const addUserHandler = (user) => {
-    setUsers((prevUsers) => [...prevUsers, user]);
-  };
+  // // Handler function to add a new user to the list
+  // const addUserHandler = (user) => {
+  //   setUsers((prevUsers) => [...prevUsers, user]);
+  // };
 
   function ErrorPage () {
     return (
@@ -104,9 +102,7 @@ function App() {
 
   const [foods, setFoods] = useState([]);
   const [exercises, setExercises] = useState([]);
-  // For some reason, when you remove the second argument from useEffect, the page automatically updates when a get request
-  // is sent, but the login no longer works, it holds indefinitely. However, when only one useEffect is there and it has no 
-  // second argument, everything works as intended (minus items of the useEffect that is not used)
+  
   useEffect(() => {
      axios
        .get('http://localhost:4000/api/foods')
@@ -129,33 +125,6 @@ function App() {
        })
    }, []);
 
-   //Trying to figure out problem
-
-  // const urls = [
-  //   "http://localhost:4000/api/exercises",
-  //   "http://localhost:4000/api/foods"
-  // ]
-  // useEffect(() => {
-  //   const requests = urls.map((url) => axios.get(url));
-  //   axios.all(requests).then((responses) => {
-  //     responses.forEach((resp) => {
-  //       setExercises(resp.data);
-  //       let msg = {
-  //         server: resp.headers.server,
-  //         status: resp.status,
-  //         fields: Object.keys(resp.data).toString(),
-  //       };
-  //       console.info(resp.config.url);
-  //       console.table(msg);
-  //     });
-  //   })
-  // });
-  
-
-
-
-
-
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
       <Router>
@@ -171,10 +140,6 @@ function App() {
               <Header />
               <AddExercise />
               <AddFood />
-              {/* <AddUser onAddUser={addUserHandler} /> */}
-              {/* Add calorie counter here */}
-              {/* <strong>ADDING CALORIES COUNTER HERE</strong> */}
-              {/* <UserList users={users} /> */}
               <Card className="auth-card" >
                 <WorkoutList users={exercises} />
                 <FoodList users={foods} />
@@ -194,10 +159,6 @@ function App() {
               <Signup />
             </React.Fragment>
           } />
-          /** Delete after testing of edit/delete button complete */
-          <Route path='/user-auth/editMeal' element={<EditFormMeal />} />
-          <Route path='/user-auth/editExercise' element ={<EditFormExercise />} />
-          /** End of Delete after testing */
           <Route path='*' element={<ErrorPage />}/>
         </Routes>
       </Router>

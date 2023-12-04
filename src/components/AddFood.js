@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './AddUser.css';
 import axios from 'axios';
 
-const AddFood = ({ onAddFood }) => {
+const AddFood = () => {
     const [isFormVisible, setIsFormVisible] = useState(false);
     const navigate = useNavigate();
     const [food, setFood] = useState({
@@ -16,7 +16,7 @@ const AddFood = ({ onAddFood }) => {
         dbId: '',
     });
 
-    const [foods, setFoods] = useState([]);
+    // const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
         setFood({...food, [e.target.name]: e.target.value});
     };

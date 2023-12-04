@@ -1,7 +1,4 @@
 import React, { useState, useContext } from 'react';
-// import './Login.css';
-// import Card from './Card';
-// import Button from './Button';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import UserContext from '../context/UserContext';
@@ -15,12 +12,6 @@ const Login = () => {
     const navigate = useNavigate();
     const { setUserData } = useContext(UserContext);
 
-
-
-    // const submitHandler = (e) => {
-    //     e.preventDefault();
-    //     console.log('Login displayed');
-    // }
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -40,35 +31,6 @@ const Login = () => {
         }
 
     }
-
-    // return (
-    //     <Card className="input">
-    //         <h1>Log In</h1>
-    //         {error && <Alert variant="danger">{error}</Alert>}
-    //         <form onSubmit={handleSubmit}>
-    //             <input
-    //                 placeholder='email@email.com'
-    //                 name="email"
-    //                 type="text"
-    //                 required onChange={e => setEmail(e.target.value)}
-    //             /> 
-    //             <input
-    //                 placeholder='Password'
-    //                 name="password"
-    //                 type="password"
-    //                 required onChange={e => setPassword(e.target.value)}
-    //             />
-    //             <Button disabled={loading} type="submit">
-    //                 <Link to="/user-auth">Login</Link> 
-    //             </Button>
-    //         </form>
-    //         <p>Don't have an account?</p>
-    //         <Button type="submit">
-    //             <Link to="/signup">Sign Up</Link>
-    //         </Button>
-    //     </Card>
-        
-    // );
 
     return (
         <Container

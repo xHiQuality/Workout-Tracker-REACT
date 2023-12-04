@@ -1,92 +1,24 @@
-// // import React from 'react';
-// // import Card from 'react-bootstrap/Card';
-// // import Button from 'react-bootstrap/Button';
 
-// // const Food = (props) => {
-// //   return (
-// //     <Card style={{ width: '18rem', border: '2px solid black', height: 'auto' }}>
-// //       <Card.Img
-// //         variant="top"
-// //         src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJlYWtmYXN0fGVufDB8fDB8fHww"
-// //         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-// //       />
 
-// //       <Card.Body>
-// //         <li key={props.id} className="user-item">
-// //           <Card.Title>Food:</Card.Title>
-// //           <Card.Text>
-// //             <h3>Name: {props.name}</h3>
-// //             <h3>Meal: {props.meal}</h3>
-// //             <h3>Calories: {props.calories}</h3>
-// //             <Button variant="primary">Delete</Button>
-// //           </Card.Text>
-// //         </li>
-// //       </Card.Body>
-// //     </Card>
-// //   );
-// // };
-
-// // export default Food;
-
-// // Food.js// Food.js
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
-// import './Food.css'; // Make sure to import your CSS file
-
-// const Food = (props) => {
-//   return (
-//     <Card className="custom-card">
-//       <Card.Img
-//         variant="top"
-//         src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJlYWtmYXN0fGVufDB8fDB8fHww"
-//         className="card-image"
-//       />
-
-//       <Card.Body>
-//         <li key={props.id} className="user-item">
-//           <Card.Title>Food:</Card.Title>
-//           <Card.Text>
-//             <h3>Name: {props.name}</h3>
-//             <h3>Meal: {props.meal}</h3>
-//             <h3>Calories: {props.calories}</h3>
-//             {window.location.pathname === '/user-auth' && (
-//                 <Link to ='/*'>
-//                     <Button type = 'submit' id = 'edit'>
-//                         Edit
-//                     </Button>
-//                 </Link>
-//             )}
-//             {window.location.pathname === '/user-auth' && (
-//                 <Link to ='/*'>
-//                     <Button type = 'submit' id = 'delete' variant='primary'>
-//                         Delete
-//                     </Button>
-//                 </Link>
-//             )}
-//           </Card.Text>
-//         </li>
-// {/* >>>>>>> fc8f55e23d5af422b1b61f8cd3f2fb80a34aaa40 */}
-//       </Card.Body>
-//     </Card>
-//   );
-// };
-
-// export default Food;
-
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import './Food.css'; // Make sure to import your CSS file
 import axios from 'axios';
+import EditFormMeal from './EditFormMeal';
 import './Card.css'
 
 const Food = (props) => {
-  // console.log(props.mealImage)
-  // console.log('ID is : ');
-  // console.log(props.id);
+ 
+  const [isFormVisible,setIsFormVisible] = useState(false)
+
+  const showFormHandler = () => {
+    setIsFormVisible(true)
+  }
+
+  const closeFormHandler = () => {
+    setIsFormVisible(false)
+  }
 
   const navigate = useNavigate();
   const deleteHandler = (id) => {
@@ -99,6 +31,7 @@ const Food = (props) => {
       .catch((err) => {
         console.log("Error from Food Delete click");
       });
+      window.location.reload()
   };
  
   return (
@@ -119,20 +52,20 @@ const Food = (props) => {
 
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">
-                <Button type="submit" id="edit" className="edit-button">
-                    <Link to={"editMeal"} style={{ textDecoration: 'none'}}>
-                      Edit
-                    </Link>
-                  </Button>
+                
+                <button type="submit" className="edit-button" onClick={showFormHandler}>Edit</button>
           
-                  <button onClick={() => { deleteHandler(props.id)}} type="submit" id="delete" className="delete-button">
+                <button onClick={() => { deleteHandler(props.id)}} type="submit" id="delete" className="delete-button">
                     Delete
-                  </button>
+                </button>
               </div>
             )}
           </Card.Text>
         </li>
       </Card.Body>
+
+      {isFormVisible && <EditFormMeal id={props.id} name={props.name} meal={props.meal} calories={props.calories} img={props.img}/>}        
+      {isFormVisible && <button id="go-back" onClick={closeFormHandler}>Go Back</button>}
     </Card>
   );
 };
