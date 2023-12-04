@@ -25,9 +25,11 @@ function App() {
       // Create and render default array with dummy items
       {
         id: 'u1',
+        name: 'Eggs',
         meal: 'breakfast',
         calories: '180',
         workout: 'legs',
+        workout_name: 'Cables',
         burnedCalories: '300',
         mealImage: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJlYWtmYXN0fGVufDB8fDB8fHww',
         img: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29ya291dHxlbnwwfHwwfHx8MA%3D%3D'
@@ -35,7 +37,9 @@ function App() {
       {
         id: 'u2',
         meal: 'lunch',
+        name: 'Sushi',
         calories: '1180',
+        workout_name: 'Bar',
         workout: 'arms',
         burnedCalories: '150',
         mealImage: 'https://plus.unsplash.com/premium_photo-1675453377179-22d446fe10ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGx1bmNofGVufDB8fDB8fHww',
@@ -43,8 +47,10 @@ function App() {
       },
       {
         id: 'u3',
+        name: 'Pasta',
         meal: 'dinner',
         calories: '1200',
+        workout_name: 'Chest',
         workout: 'push',
         burnedCalories: '270',
         mealImage: 'https://images.unsplash.com/photo-1515516969-d4008cc6241a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRpbm5lcnxlbnwwfHwwfHx8MA%3D%3D',
@@ -132,7 +138,7 @@ function App() {
           <Route exact path='/' element={
             <React.Fragment>
               <Hdr />
-              <UserList users={users} /* This should be a dummy array of users initially */ />
+              <UserList users={DUMMY_ITEMS} /* This should be a dummy array of users initially */ />
             </React.Fragment>
           } />
           <Route path='/user-auth' element={

@@ -8,6 +8,11 @@ function UserList({ users }) {
   const foodUsers = users.filter((user) => user.meal !== user.calories);
   const workoutUsers = users.filter((user) => user.workout !== user.burnedCalories);
 
+
+
+
+
+
   return (
     <div className="userlist">
       <div className="grid-container">
@@ -27,7 +32,7 @@ function UserList({ users }) {
             <Card.Body>
               <h2>Workout Information:</h2>
               {workoutUsers.map((user, index) => (
-                <Workout key={index} name={user.name} workout={user.workout} calories={user.burnedCalories} image={user.image}/>
+                <Workout workout_name={user.workout_name} key={index} name={user.name} workout={user.workout} calories={user.burnedCalories} image={user.img}/>
               ))}
             </Card.Body>
           </Card>
