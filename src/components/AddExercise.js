@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './AddUser.css';
 import axios from 'axios';
 
-const AddExercise = ({ onAddExercise }) => {
+const AddExercise = () => {
     const [isFormVisible, setIsFormVisible] = useState(false);
     const navigate = useNavigate();
     const [exercise, setExercise] = useState({
@@ -35,7 +35,16 @@ const AddExercise = ({ onAddExercise }) => {
             .catch((err) => {
                 console.log(err);
             });
+       closeFormHandler();
     };
+
+    const updateList = () => {
+        axios
+            .get('http://localhost:4000/api/exercises', exercise)
+            .then((res) => {
+                console.log(res)
+            });
+    }
 
     const showFormHandler = () => {
         setIsFormVisible(true);

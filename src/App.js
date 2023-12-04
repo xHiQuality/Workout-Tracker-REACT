@@ -88,12 +88,12 @@ function App() {
         token = "";
       }
       const tokenResponse = await axios.post(
-        "http://localhost:4000/tokenIsValid",
+        "http://localhost:4000/api/users/tokenIsValid",
         null,
         { headers: { "x-auth-token": token }}
       );
       if (tokenResponse.data) {
-        const userRes = await axios.get("http://localhost:4000/", {
+        const userRes = await axios.get("http://localhost:4000/api/users/", {
           headers: { "x-auth-token": token },
         });
         setUserData({
@@ -108,7 +108,7 @@ function App() {
    // const [users, setUsers] = useState([]);
    const [users, setUsers] = useState(DUMMY_ITEMS);
   //  const [foods, setFoods] = useState([]);
-  //  const [exercises, setExercises] = useState([]);
+  const [exercises, setExercises] = useState([]);
   //  useEffect(() => {
   //    axios
   //      .get('http://localhost:4000/api/foods')
@@ -148,8 +148,8 @@ function App() {
               {/* <AddUser onAddUser={addUserHandler} /> */}
               {/* Add calorie counter here */}
               {/* <strong>ADDING CALORIES COUNTER HERE</strong> */}
-              <UserList users={users} />
-              {/* <WorkoutList users={exercises} /> */}
+              {/* <UserList users={users} /> */}
+              <WorkoutList users={exercises} />
             </React.Fragment>
           } />
           <Route path='/login' element={
