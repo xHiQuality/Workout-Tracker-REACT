@@ -13,34 +13,44 @@ const AddFood = ({ onAddFood }) => {
         meal: '',
         calories: '',
         img: '',
+        dbId: '',
     });
     const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
         setFood({...food, [e.target.name]: e.target.value});
     };
-
+    
+    
     const submitHandler = (e) => {
-        e.preventDefault();
-        console.log(food);
+      e.preventDefault();
+      // console.log(food);
+      console.log("DFDFDFDFDFD")
 
-        axios
-            .post('http://localhost:4000/api/foods', food) 
-            .then((res) => {
-                setFood({
-                    name: '',
-                    meal: '',
-                    calories: '',
-                    img: '',
-                });
-                navigate('/user-auth');
-            })
-            .then((res) => console.log(res))
-            .catch((err) => {
-                console.log(err);
-            });
-          window.location.reload();
-        closeFormHandler();
-    };
+      axios
+          .post('http://localhost:4000/api/foods', food) 
+          .then((res) => {
+              // Log the _id from the MongoDB document
+              const a1 = res.data.food
+              console.log('Inserted document ID:', res.data);
+              food.dbId = a1._id
+
+              setFood({
+                  name: '',
+                  meal: '',
+                  calories: '',
+                  img: '',
+              });
+              navigate('/user-auth');
+          })
+          .catch((err) => {
+              console.log(err);
+          });
+  
+      // window.location.reload();
+      closeFormHandler();
+  };
+  
+    
 
     const showFormHandler = () => {
         setIsFormVisible(true);
@@ -54,6 +64,7 @@ const AddFood = ({ onAddFood }) => {
         <Button onClick={showFormHandler} id="main-add-entry">
         <Link to="/user-auth">Add Food</Link>
       </Button>
+      <food dbId={food.dbId}/>
       {isFormVisible && (
         <form onSubmit={submitHandler}>
             Name: <input type='text' onChange={changeHandler} name='name'></input> <br/>
@@ -69,3 +80,4 @@ const AddFood = ({ onAddFood }) => {
 }
 
 export default AddFood;
+

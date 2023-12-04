@@ -101,6 +101,7 @@ function App() {
 
    // const [users, setUsers] = useState([]);
   const [users, setUsers] = useState(DUMMY_ITEMS);
+
   const [foods, setFoods] = useState([]);
   const [exercises, setExercises] = useState([]);
   // For some reason, when you remove the second argument from useEffect, the page automatically updates when a get request
