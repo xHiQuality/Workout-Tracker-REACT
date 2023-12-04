@@ -36,6 +36,7 @@ const AddFood = ({ onAddFood }) => {
             .catch((err) => {
                 console.log(err);
             });
+          window.location.reload();
         closeFormHandler();
     };
 

@@ -35,6 +35,10 @@ const AddExercise = () => {
             .catch((err) => {
                 console.log(err);
             });
+
+        
+        window.location.reload();
+        
        closeFormHandler();
     };
 

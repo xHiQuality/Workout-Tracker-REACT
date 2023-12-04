@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import AddUser from './components/AddUser';
 import UserList from './components/UsersList';
 import Hdr from './components/Hdr.js';
 import './components/WorkoutPage.css'
@@ -9,16 +8,18 @@ import Header from './components/Header.js'
 import Signup from './components/Signup.js'
 import Header2 from './components/Header2.js'
 import './App.css';
-import Button from './components/Button.js';
-import { Link } from 'react-router-dom';
 import UserContext from './context/UserContext.js';
 import axios from 'axios';
 import Login from './components/Login.js';
-import Navbar from './components/Navbar.js';
-import { Nav } from 'react-bootstrap';
 import AddExercise from './components/AddExercise.js';
 import AddFood from './components/AddFood.js';
 import WorkoutList from './components/WorkoutList.js';
+import FoodList from './components/FoodList.js';
+import EditFormExercise from './components/EditFormExercise.js';
+import EditFormMeal from './components/EditFormMeal.js';
+import { Link } from 'react-router-dom';
+import './components/Button.css'
+
 
 function App() {
 
@@ -63,15 +64,7 @@ function App() {
       <div>
         <h3>Error</h3>
         <p>Page not found.</p>
-      </div>
-    )
-  }
-
-  /** Delete after testing */
-  function ButtonLink () {
-    return (
-      <div>
-        <h3>Button Clicked</h3>
+        <button className='button'><Link to="/">Go Back</Link></button>
       </div>
     )
   }
@@ -202,7 +195,6 @@ function App() {
           /** Delete after testing of edit/delete button complete */
           <Route path='/user-auth/editMeal' element={<EditFormMeal />} />
           <Route path='/user-auth/editExercise' element ={<EditFormExercise />} />
-          <Route path='/user-auth/delete' element={<ButtonLink type = 'Delete'/>} />
           /** End of Delete after testing */
           <Route path='*' element={<ErrorPage />}/>
         </Routes>

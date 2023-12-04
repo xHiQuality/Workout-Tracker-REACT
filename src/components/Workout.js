@@ -4,15 +4,12 @@ import './Food.css'; // Import the same CSS file used for Food component
 import './Image.css'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { hover } from '@testing-library/user-event/dist/hover';
 
 const Workout = (props) => {
   
   const deleteHandler = (e) => {
 
   }
-  
-  
   
   return (
     <Card className="custom-card">
