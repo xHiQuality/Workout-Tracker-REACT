@@ -1,0 +1,23 @@
+#go-back {
+    background-color: gray;
+    color: black;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+form {
+    width: 100%;
+    align-items: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

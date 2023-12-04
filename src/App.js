@@ -10,6 +10,7 @@ import Signup from './components/Signup.js'
 import Header2 from './components/Header2.js'
 import './App.css';
 import Button from './components/Button.js';
+import { Link } from 'react-router-dom';
 import UserContext from './context/UserContext.js';
 import axios from 'axios';
 import Login from './components/Login.js';
@@ -18,7 +19,6 @@ import { Nav } from 'react-bootstrap';
 import AddExercise from './components/AddExercise.js';
 import AddFood from './components/AddFood.js';
 import WorkoutList from './components/WorkoutList.js';
-import FoodList from './components/FoodList.js';
 
 function App() {
 
@@ -181,7 +181,6 @@ function App() {
               {/* Add calorie counter here */}
               {/* <strong>ADDING CALORIES COUNTER HERE</strong> */}
               {/* <UserList users={users} /> */}
-              {/* <UserList users={foods} /> */}
               <WorkoutList users={exercises} />
               <FoodList users={foods} />
               
@@ -201,7 +200,8 @@ function App() {
             </React.Fragment>
           } />
           /** Delete after testing of edit/delete button complete */
-          <Route path='/user-auth/edit' element={<ButtonLink type = 'Edit'/>} />
+          <Route path='/user-auth/editMeal' element={<EditFormMeal />} />
+          <Route path='/user-auth/editExercise' element ={<EditFormExercise />} />
           <Route path='/user-auth/delete' element={<ButtonLink type = 'Delete'/>} />
           /** End of Delete after testing */
           <Route path='*' element={<ErrorPage />}/>

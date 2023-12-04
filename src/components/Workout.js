@@ -7,6 +7,13 @@ import Button from 'react-bootstrap/Button';
 import { hover } from '@testing-library/user-event/dist/hover';
 
 const Workout = (props) => {
+  
+  const deleteHandler = (e) => {
+
+  }
+  
+  
+  
   return (
     <Card className="custom-card">
       {/* <Card.Img
@@ -17,26 +24,23 @@ const Workout = (props) => {
       {/* https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29ya291dHxlbnwwfHwwfHx8MA%3D%3D */}
       <Card.Body>
         <li key={props.id} className="user-item">
-          <Card.Title>Exercise</Card.Title>
+          <Card.Title>Exercise: {props.exercise}</Card.Title>
           <Card.Text>
-            <h3>Exercise: {props.name}</h3>
             <h3>Workout: {props.workout}</h3>
             <h3>Calories: {props.calories}</h3>
             <h3>{props.img}</h3>
 
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">
-                  <Button type="submit" id="edit" className="edit-button">
-                    <Link to={"edit"} style={{ textDecoration: 'none'}}>
+                  <Button type="submit" className="edit-button">
+                    <Link to={"editExercise"} style={{ textDecoration: 'none'}}>
                       Edit
                     </Link>
                   </Button>
           
-                  <Button type="submit" id="delete" className="delete-button">
-                    <Link to={"delete"} className='link' style={{ textDecoration: 'none'}}>
-                      Delete
-                    </Link>
-                  </Button>
+                  <button type='submit' className='delete-button' onClick={deleteHandler}>
+                    Delete
+                  </button>
                 
               </div>
             )}
