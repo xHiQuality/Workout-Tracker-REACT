@@ -19,8 +19,6 @@ import { Nav } from 'react-bootstrap';
 import AddExercise from './components/AddExercise.js';
 import AddFood from './components/AddFood.js';
 import WorkoutList from './components/WorkoutList.js';
-import EditFormMeal from './components/EditFormMeal.js';
-import EditFormExercise from './components/EditFormExercise.js';
 
 function App() {
 
@@ -109,29 +107,60 @@ function App() {
   }, []);
 
    // const [users, setUsers] = useState([]);
-   const [users, setUsers] = useState(DUMMY_ITEMS);
-  //  const [foods, setFoods] = useState([]);
+  const [users, setUsers] = useState(DUMMY_ITEMS);
+  const [foods, setFoods] = useState([]);
   const [exercises, setExercises] = useState([]);
-  //  useEffect(() => {
-  //    axios
-  //      .get('http://localhost:4000/api/foods')
-  //      .then((res) => {
-  //        setFoods(res.data);
-  //      })
-  //      .catch((err) => {
-  //        console.log(err)
-  //      });
-  // });
+  // For some reason, when you remove the second argument from useEffect, the page automatically updates when a get request
+  // is sent, but the login no longer works, it holds indefinitely. However, when only one useEffect is there and it has no 
+  // second argument, everything works as intended (minus items of the useEffect that is not used)
+  useEffect(() => {
+     axios
+       .get('http://localhost:4000/api/foods')
+       .then((res) => {
+         setFoods(res.data);
+       })
+       .catch((err) => {
+         console.log(err)
+       });
+  }, []);
+  
+  useEffect(() => {
+     axios
+       .get('http://localhost:4000/api/exercises')
+       .then((res) => {
+         setExercises(res.data);
+       })
+       .catch((err) => {
+         console.log(err);
+       })
+   }, []);
+
+   //Trying to figure out problem
+
+  // const urls = [
+  //   "http://localhost:4000/api/exercises",
+  //   "http://localhost:4000/api/foods"
+  // ]
   // useEffect(() => {
-  //    axios
-  //      .get('http://localhost:4000/api/exercises')
-  //      .then((res) => {
-  //        setExercises(res.data);
-  //      })
-  //      .catch((err) => {
-  //        console.log(err);
-  //      })
-  //  });
+  //   const requests = urls.map((url) => axios.get(url));
+  //   axios.all(requests).then((responses) => {
+  //     responses.forEach((resp) => {
+  //       setExercises(resp.data);
+  //       let msg = {
+  //         server: resp.headers.server,
+  //         status: resp.status,
+  //         fields: Object.keys(resp.data).toString(),
+  //       };
+  //       console.info(resp.config.url);
+  //       console.table(msg);
+  //     });
+  //   })
+  // });
+  
+
+
+
+
 
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
@@ -148,11 +177,13 @@ function App() {
               <Header />
               <AddExercise />
               <AddFood />
-              <AddUser onAddUser={addUserHandler} />
-                Add calorie counter here
-               <strong>ADDING CALORIES COUNTER HERE</strong>
-               <UserList users={users} />
+              {/* <AddUser onAddUser={addUserHandler} /> */}
+              {/* Add calorie counter here */}
+              {/* <strong>ADDING CALORIES COUNTER HERE</strong> */}
+              {/* <UserList users={users} /> */}
               <WorkoutList users={exercises} />
+              <FoodList users={foods} />
+              
             </React.Fragment>
           } />
           <Route path='/login' element={
