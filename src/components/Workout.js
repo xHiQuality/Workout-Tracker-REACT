@@ -9,11 +9,11 @@ import { hover } from '@testing-library/user-event/dist/hover';
 const Workout = (props) => {
   return (
     <Card className="custom-card">
-      <Card.Img
+      {/* <Card.Img
         variant="top"
         src={props.image}
         className="card-image"
-      />
+      /> */}
       {/* https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29ya291dHxlbnwwfHwwfHx8MA%3D%3D */}
       <Card.Body>
         <li key={props.id} className="user-item">
@@ -22,6 +22,7 @@ const Workout = (props) => {
             <h3>Exercise: {props.name}</h3>
             <h3>Workout: {props.workout}</h3>
             <h3>Calories: {props.calories}</h3>
+            <h3>{props.img}</h3>
 
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">
