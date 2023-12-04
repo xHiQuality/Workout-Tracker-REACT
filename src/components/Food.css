@@ -41,3 +41,8 @@ body {
   background-color: #888; /* Gray color for both buttons */
   color: #fff; /* White text color */
 }
+
+.edit-button:hover,
+.delete-button:hover {
+  cursor: pointer;
+}

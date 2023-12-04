@@ -94,25 +94,22 @@ const Food = (props) => {
 {/* https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJlYWtmYXN0fGVufDB8fDB8fHww */}
       <Card.Body>
         <li key={props.id} className="user-item">
-          <Card.Title>Food</Card.Title>
+          <Card.Title>Food: {props.name}</Card.Title>
           <Card.Text>
-            <h3>Name: {props.name}</h3>
             <h3>Meal: {props.meal}</h3>
             <h3>Calories: {props.calories}</h3>
 
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">
                 <Button type="submit" id="edit" className="edit-button">
-                    <Link to={"edit"} style={{ textDecoration: 'none'}}>
+                    <Link to={"editMeal"} style={{ textDecoration: 'none'}}>
                       Edit
                     </Link>
                   </Button>
           
-                  <Button type="submit" id="delete" className="delete-button">
-                    <Link to={"delete"} className='link' style={{ textDecoration: 'none'}}>
-                      Delete
-                    </Link>
-                  </Button>
+                  <button type="submit" id="delete" className="delete-button">
+                    Delete
+                  </button>
               </div>
             )}
           </Card.Text>
