@@ -14,6 +14,7 @@ const AddFood = ({ onAddFood }) => {
         calories: '',
         img: '',
     });
+
     const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
         setFood({...food, [e.target.name]: e.target.value});
@@ -21,11 +22,12 @@ const AddFood = ({ onAddFood }) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(food);
+        //console.log(food);
 
         axios
             .post('http://localhost:4000/api/foods', food) 
             .then((res) => {
+                console.log(res.data.id);
                 setFood({
                     name: '',
                     meal: '',
@@ -33,8 +35,11 @@ const AddFood = ({ onAddFood }) => {
                     img: '',
                 });
                 navigate('/user-auth');
+                console.log(res);
+          //      console.log(res.meal);
+                // console.log(res.data.meal);
             })
-            .then((res) => console.log(res))
+            // .then((res) => console.log(res))
             .catch((err) => {
                 console.log(err);
             });
