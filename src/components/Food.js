@@ -81,6 +81,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './Food.css'; // Make sure to import your CSS file
 import axios from 'axios';
+import './Card.css'
 
 const Food = (props) => {
   // console.log(props.mealImage)

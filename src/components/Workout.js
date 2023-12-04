@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './Food.css'; // Import the same CSS file used for Food component
-import './Image.css'
+import './Image.css';
+import './Card.css'
 import Card from 'react-bootstrap/Card';
 import './EditForm.css'
 import EditFormExercise from './EditFormExercise';
