@@ -32,7 +32,7 @@ function UserList({ users }) {
             <Card.Body>
               <h2>Workout Information:</h2>
               {workoutUsers.map((user, index) => (
-                <Workout workout_name={user.workout_name} key={index} name={user.name} workout={user.workout} calories={user.burnedCalories} image={user.image}/>
+                <Workout workout_name={user.workout_name} key={index} name={user.name} workout={user.workout} calories={user.burnedCalories} image={user.img}/>
               ))}
             </Card.Body>
           </Card>

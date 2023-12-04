@@ -47,7 +47,6 @@ const Workout = (props, key) => {
           <Card.Text>
             <h3>Workout: {props.workout}</h3>
             <h3>Calories: {props.calories}</h3>
-            <h3>{props.img}</h3>
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">
            

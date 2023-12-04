@@ -52,7 +52,7 @@ function App() {
         name: 'Pasta',
         meal: 'dinner',
         calories: '1200',
-        workout_name: 'Test',
+        workout_name: 'Chest',
         workout: 'push',
         burnedCalories: '270',
         mealImage: 'https://images.unsplash.com/photo-1515516969-d4008cc6241a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRpbm5lcnxlbnwwfHwwfHx8MA%3D%3D',
