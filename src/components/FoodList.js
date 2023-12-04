@@ -25,4 +25,4 @@ function FoodList({ users }) {
   );
 }
 
-export default UserList;
+export default FoodList;
