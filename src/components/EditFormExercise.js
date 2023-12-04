@@ -1,42 +1,41 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import './EditForm.css'
 
 
 
-const EditFormExercise = () => {
-    const [isFormVisible, setIsFormVisible] = useState(false);
+
+const EditFormExercise = (props) => {
+    
     const navigate = useNavigate();
     const [exercise, setExercise] = useState({
-        name: '',
-        workout: '',
-        calories: '',
+        id: props.id,
+        name: props.name,
+        workout: props.workout,
+        calories: props.calories,
     });
     const changeHandler = (e) => {
-        
+                
     };
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        // console.log(exercise);
 
-    //     axios
-    //         .post('http://localhost:4000/api/exercises', exercise) 
-    //         .then((res) => {
-    //             setExercise({
-    //                 name: '',
-    //                 workout: '',
-    //                 calories: '',
-    //             });
-    //             navigate('/user-auth');
-    //         })
-    //         .then((res) => console.log(res))
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    //    closeFormHandler();
+
+    const submitHandler = (e) => {
+        console.log(exercise.id)
+        console.log('http://localhost:4000/api/exercises/'+exercise.id)
+        
+       e.preventDefault();
+        // console.log(exercise);
+        axios
+        .put('http://localhost:4000/api/exercises/'+exercise.id, {
+            name: exercise.name,
+            workout: exercise.workout,
+            calories: exercise.calories
+        });
+        navigate('/user-auth')
     };
 
     const updateList = () => {
@@ -46,24 +45,15 @@ const EditFormExercise = () => {
                 console.log(res)
             });
     }
-
-    const showFormHandler = () => {
-        setIsFormVisible(true);
-    };
-    const closeFormHandler = () => {
-      setIsFormVisible(false);
-    };
-
   return (
     <div className="edit-page">
         <form onSubmit={submitHandler}>
-            Name: <input type='text' onChange={changeHandler} name='name'></input> <br/>
-            Workout: <input type='text' onChange={changeHandler} name='workout'></input> <br/>
-            Calories: <input type='Number' onChange={changeHandler} name='calories'></input> <br/>
+            Name: <input type='text' onChange={changeHandler} name='name' placeholder={exercise.name}></input> <br/>
+            Workout: <input type='text' onChange={changeHandler} name='workout' placeholder={exercise.workout}></input> <br/>
+            Calories: <input type='Number' onChange={changeHandler} name='calories' placeholder={exercise.calories}></input> <br/>
             <button>Submit</button>
             
         </form>
-        <button id="go-back"><Link to={"/user-auth"}>Go Back</Link></button>
     </div>
   );
 }

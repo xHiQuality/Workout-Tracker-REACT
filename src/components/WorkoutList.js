@@ -23,7 +23,6 @@
 // export default WorkoutList;
 
 import React from 'react';
-import Food from './Food';
 import Workout from './Workout';
 import { Card } from 'react-bootstrap';
 import './UsersList.css';
@@ -39,7 +38,7 @@ function WorkoutList({ users }) {
             <Card.Body>
               <h2>Workout Information:</h2>
               {workoutUsers.map((user, index) => (
-                <Workout key={index} name={user.name} workout={user.workout} calories={user.calories} image={user.img}/>
+                <Workout id={user._id} name={user.name} workout={user.workout} calories={user.calories} img={user.img}/>
               ))}
             </Card.Body>
           </Card>

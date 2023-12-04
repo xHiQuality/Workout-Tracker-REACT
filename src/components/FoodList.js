@@ -1,6 +1,5 @@
 import React from 'react';
 import Food from './Food';
-import Workout from './Workout';
 import { Card } from 'react-bootstrap';
 import './UsersList.css';
 

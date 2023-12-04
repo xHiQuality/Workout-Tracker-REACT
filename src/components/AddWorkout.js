@@ -1,93 +1,93 @@
-import React, { useState } from 'react';
-import Card from '../../Card';
-import Button from '../../Button';
-import './AddUser.css';
+// import React, { useState } from 'react';
+// import Card from '../../Card';
+// import Button from '../../Button';
+// import './AddUser.css';
 
-function AddWorkout({ onAddWorkout }) {
+// function AddWorkout({ onAddWorkout }) {
 
-  const [isFormVisible, setIsFormVisible] = useState(false); // New state variable
-  const [calories, setCalories] = useState('');
-  const [workout, setWorkout] = useState('Push'); // Default value set to 'Breakfast'
-  const [image, setImage] = useState('')
-  const [mealImage,setMealImage] = useState('')
-
-
-  const addUserHandler = (event) => {
-    event.preventDefault();
-
-    const newUser = {
-      workout: workout,
-      calories: calories,
-      image: image,
-      mealImage: mealImage
-    };
-
-    // Call the handler function to add the new user
-    onAddWorkout(newUser);
-
-    // Reset the form fields
-    setWorkout('Push');
-    setCalories('');
-    setImage('')
-    setMealImage('')
-    setIsFormVisible(false);
-
-  };
+//   const [isFormVisible, setIsFormVisible] = useState(false); // New state variable
+//   const [calories, setCalories] = useState('');
+//   const [workout, setWorkout] = useState('Push'); // Default value set to 'Breakfast'
+//   const [image, setImage] = useState('')
+//   const [mealImage,setMealImage] = useState('')
 
 
-  const showFormHandler = () => {
-    setIsFormVisible(true);
-  };
+//   const addUserHandler = (event) => {
+//     event.preventDefault();
+
+//     const newUser = {
+//       workout: workout,
+//       calories: calories,
+//       image: image,
+//       mealImage: mealImage
+//     };
+
+//     // Call the handler function to add the new user
+//     onAddWorkout(newUser);
+
+//     // Reset the form fields
+//     setWorkout('Push');
+//     setCalories('');
+//     setImage('')
+//     setMealImage('')
+//     setIsFormVisible(false);
+
+//   };
+
+
+//   const showFormHandler = () => {
+//     setIsFormVisible(true);
+//   };
 
   
 
-  return (
-    <div> 
-      <Button onClick={showFormHandler}>Add Workout</Button>
-        {isFormVisible && ( // Display the form only when isFormVisible is true
+//   return (
+//     <div> 
+//       <Button onClick={showFormHandler}>Add Workout</Button>
+//         {isFormVisible && ( // Display the form only when isFormVisible is true
 
 
 
-      <Card className="input">
-        <form onSubmit={addUserHandler}>
-        <label>Image</label>
-          <input
-            id="image"
-            type="string"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-          /> 
+//       <Card className="input">
+//         <form onSubmit={addUserHandler}>
+//         <label>Image</label>
+//           <input
+//             id="image"
+//             type="string"
+//             value={image}
+//             onChange={(e) => setImage(e.target.value)}
+//           /> 
 
 
-        <label>Workout</label>
-          <select id="meal" value={workout} onChange={(e) => setWorkout(e.target.value)}>
-            {/* Create options for Breakfast, Lunch, and Dinner */}
-            {['Push', 'Pull', 'Legs'].map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+//         <label>Workout</label>
+//           <select id="meal" value={workout} onChange={(e) => setWorkout(e.target.value)}>
+//             {/* Create options for Breakfast, Lunch, and Dinner */}
+//             {['Push', 'Pull', 'Legs'].map((option) => (
+//               <option key={option} value={option}>
+//                 {option}
+//               </option>
+//             ))}
+//           </select>
           
           
-          <label>Calories</label>
-          <input
-            id="calories"
-            type="number"
-            value={calories}
-            onChange={(e) => setCalories(e.target.value)}
-          /> 
+//           <label>Calories</label>
+//           <input
+//             id="calories"
+//             type="number"
+//             value={calories}
+//             onChange={(e) => setCalories(e.target.value)}
+//           /> 
         
-          <Button type="submit">Add Workot</Button>
-        </form>
-      </Card>
-        )}
-    </div>
+//           <Button type="submit">Add Workot</Button>
+//         </form>
+//       </Card>
+//         )}
+//     </div>
 
-  );
-};
+//   );
+// };
 
-export default AddWorkout;
+// export default AddWorkout;
 
 
 
