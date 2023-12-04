@@ -1,26 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './Food.css'; // Import the same CSS file used for Food component
 import './Image.css'
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import './EditForm.css'
+import EditFormExercise from './EditFormExercise';
+import axios from 'axios';
 
 const Workout = (props) => {
-  
-  const deleteHandler = (e) => {
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
+  const showFormHandler = () => {
+    setIsFormVisible(true)
   }
+  
+  const closeFormHandler = () => {
+    setIsFormVisible(false)
+  }
+
+  const navigate = useNavigate();
+  const deleteHandler = (id) => {
+    console.log(id);
+    axios
+      .delete(`http://localhost:4000/api/exercises/${props.id}`)
+      .then((res) => {
+        navigate('/user-auth');
+      })
+      .catch((err) => {
+        console.log("Error from Workout Delete click");
+      });
+  };
   
   return (
     <Card className="custom-card">
-      <Card.Img
+       <Card.Img
         variant="top"
         src={props.image}
         className="card-image"
       />
       {/* https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29ya291dHxlbnwwfHwwfHx8MA%3D%3D */}
       <Card.Body>
-        <li key={props.id} className="user-item">
+        <li className="user-item">
           <Card.Title>Exercise: {props.exercise}</Card.Title>
           <Card.Text>
             <h3>Workout: {props.workout}</h3>
@@ -29,13 +50,12 @@ const Workout = (props) => {
 
             {window.location.pathname === '/user-auth' && (
               <div className="button-container">
-                  <Button type="submit" className="edit-button">
-                    <Link to={"editExercise"} style={{ textDecoration: 'none'}}>
-                      Edit
-                    </Link>
-                  </Button>
+           
+
+                  <button type="submit" className="edit-button" onClick={showFormHandler}>Edit</button>
+                  
           
-                  <button type='submit' className='delete-button' onClick={deleteHandler}>
+                  <button type='submit' className='delete-button' onClick={() => { deleteHandler(props.id)}}>
                     Delete
                   </button>
                 
@@ -44,7 +64,10 @@ const Workout = (props) => {
           </Card.Text>
         </li>
       </Card.Body>
+      {isFormVisible && <EditFormExercise id={props.id} name={props.name} workout={props.workout} calories={props.calories} img={props.img}/>}
+      {isFormVisible && <button id="go-back" onClick={closeFormHandler}>Go Back</button>}
     </Card>
+    
   );
 };
 

@@ -76,13 +76,29 @@
 // export default Food;
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './Food.css'; // Make sure to import your CSS file
+import axios from 'axios';
 
 const Food = (props) => {
   // console.log(props.mealImage)
+  // console.log('ID is : ');
+  // console.log(props.id);
+
+  const navigate = useNavigate();
+  const deleteHandler = (id) => {
+    console.log(id);
+    axios
+      .delete(`http://localhost:4000/api/foods/${props.id}`)
+      .then((res) => {
+        navigate('/user-auth');
+      })
+      .catch((err) => {
+        console.log("Error from Food Delete click");
+      });
+  };
  
   return (
     <Card className="custom-card">
@@ -108,7 +124,7 @@ const Food = (props) => {
                     </Link>
                   </Button>
           
-                  <button type="submit" id="delete" className="delete-button">
+                  <button onClick={() => { deleteHandler(props.id)}} type="submit" id="delete" className="delete-button">
                     Delete
                   </button>
               </div>

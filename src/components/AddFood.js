@@ -15,6 +15,7 @@ const AddFood = ({ onAddFood }) => {
         img: '',
         dbId: '',
     });
+
     const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
         setFood({...food, [e.target.name]: e.target.value});
@@ -22,35 +23,31 @@ const AddFood = ({ onAddFood }) => {
     
     
     const submitHandler = (e) => {
-      e.preventDefault();
-      // console.log(food);
-      console.log("DFDFDFDFDFD")
+        e.preventDefault();
+        //console.log(food);
 
-      axios
-          .post('http://localhost:4000/api/foods', food) 
-          .then((res) => {
-              // Log the _id from the MongoDB document
-              const a1 = res.data.food
-              console.log('Inserted document ID:', res.data);
-              food.dbId = a1._id
-
-              setFood({
-                  name: '',
-                  meal: '',
-                  calories: '',
-                  img: '',
-              });
-              navigate('/user-auth');
-          })
-          .catch((err) => {
-              console.log(err);
-          });
-  
-      // window.location.reload();
-      closeFormHandler();
-  };
-  
-    
+        axios
+            .post('http://localhost:4000/api/foods', food) 
+            .then((res) => {
+                console.log(res.data.id);
+                setFood({
+                    name: '',
+                    meal: '',
+                    calories: '',
+                    img: '',
+                });
+                navigate('/user-auth');
+                console.log(res);
+          //      console.log(res.meal);
+                // console.log(res.data.meal);
+            })
+            // .then((res) => console.log(res))
+            .catch((err) => {
+                console.log(err);
+            });
+          window.location.reload();
+        closeFormHandler();
+    };
 
     const showFormHandler = () => {
         setIsFormVisible(true);

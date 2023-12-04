@@ -1,6 +1,5 @@
 import React from 'react';
 import Food from './Food';
-import Workout from './Workout';
 import { Card } from 'react-bootstrap';
 import './UsersList.css';
 
@@ -15,7 +14,7 @@ function FoodList({ users }) {
             <Card.Body>
               <h2>Food Information:</h2>
               {foodUsers.map((user, index) => (
-                <Food key={index} name={user.name} meal={user.meal} calories={user.calories} mealImage={user.img} />
+                <Food id={user._id} name={user.name} meal={user.meal} calories={user.calories} mealImage={user.img} />
               ))}
             </Card.Body>
           </Card>
