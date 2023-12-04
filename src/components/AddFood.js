@@ -13,19 +13,23 @@ const AddFood = ({ onAddFood }) => {
         meal: '',
         calories: '',
         img: '',
+        dbId: '',
     });
+
     const [foods, setFoods] = useState([]);
     const changeHandler = (e) => {
         setFood({...food, [e.target.name]: e.target.value});
     };
-
+    
+    
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(food);
+        //console.log(food);
 
         axios
             .post('http://localhost:4000/api/foods', food) 
             .then((res) => {
+                console.log(res.data.id);
                 setFood({
                     name: '',
                     meal: '',
@@ -33,8 +37,11 @@ const AddFood = ({ onAddFood }) => {
                     img: '',
                 });
                 navigate('/user-auth');
+                console.log(res);
+          //      console.log(res.meal);
+                // console.log(res.data.meal);
             })
-            .then((res) => console.log(res))
+            // .then((res) => console.log(res))
             .catch((err) => {
                 console.log(err);
             });
@@ -54,6 +61,7 @@ const AddFood = ({ onAddFood }) => {
         <Button onClick={showFormHandler} id="main-add-entry">
         <Link to="/user-auth">Add Food</Link>
       </Button>
+      <food dbId={food.dbId}/>
       {isFormVisible && (
         <form onSubmit={submitHandler}>
             Name: <input type='text' onChange={changeHandler} name='name'></input> <br/>
@@ -69,3 +77,4 @@ const AddFood = ({ onAddFood }) => {
 }
 
 export default AddFood;
+
