@@ -21,3 +21,32 @@
 // }
 
 // export default WorkoutList;
+
+import React from 'react';
+import Food from './Food';
+import Workout from './Workout';
+import { Card } from 'react-bootstrap';
+import './UsersList.css';
+
+function WorkoutList({ users }) {
+    const workoutUsers = users.filter((user) => user.workout !== user.burnedCalories);
+
+  return (
+    <div className="userlist">
+      <div className="grid-container">
+        {workoutUsers.length > 0 && (
+          <Card className="user-card">
+            <Card.Body>
+              <h2>Workout Information:</h2>
+              {workoutUsers.map((user, index) => (
+                <Workout key={index} name={user.name} workout={user.workout} calories={user.burnedCalories} image={user.image}/>
+              ))}
+            </Card.Body>
+          </Card>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default WorkoutList;
