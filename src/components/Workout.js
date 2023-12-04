@@ -19,7 +19,7 @@ const Workout = (props) => {
         <li key={props.id} className="user-item">
           <Card.Title>Exercise</Card.Title>
           <Card.Text>
-            <h3>Exercise: {props.exercise}</h3>
+            <h3>Exercise: {props.name}</h3>
             <h3>Workout: {props.workout}</h3>
             <h3>Calories: {props.calories}</h3>
 
